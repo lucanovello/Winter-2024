@@ -1,0 +1,5 @@
+﻿lab1.obj : error LNK2005: info already defined in diy1.obj
+lab1.obj : error LNK2005: line already defined in diy1.obj
+lab1.obj : error LNK2005: main already defined in diy1.obj
+lab1.obj : error LNK2005: title already defined in diy1.obj
+C:\Storage\SCHOOL\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws1\lab\x64\Debug\lab.exe : fatal error LNK1169: one or more multiply defined symbols found

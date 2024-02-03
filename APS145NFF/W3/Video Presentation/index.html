@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Winter Weather Dispatch Service Web Application</title>
+</head>
+<body>
+    <h1 class="logo">Winter Weather Dispatch Service</h1>
+    <form class="form-container" id="form">
+        <div class="container">
+            <label class="labels" for="weather-type">Type of Weather</label>
+            <select class="inputs" name="weather-type" id="weather-type">
+                <option class="options" value="snow">Snow</option>
+                <option class="options" value="ice">Ice</option>
+                <option class="options" value="mixed">Mixed</option>
+            </select>
+        </div>
+        <div class="container">
+            <label class="labels" for="accumulation">Accumulation Amount per Hour (<span class="acc-span" id="acc-span">cm</span>)</label>
+            <input class="inputs" type="number" name="accumulation" id="accumulation" placeholder="0">
+        </div>
+        <div class="container">
+            <label class="labels" for="temperature">Temperature (&degC)</label>
+            <input class="inputs" type="number" name="temperature" id="temperature" placeholder="0" >
+        </div>
+        <button class="submit-btn" id="submit-btn" type="submit">Submit</button>
+    </form>
+    <div class="results-container">
+        <h1 class="results-title">Results:</h1>
+        <h1 class="results-text" id="results-text"></h1>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

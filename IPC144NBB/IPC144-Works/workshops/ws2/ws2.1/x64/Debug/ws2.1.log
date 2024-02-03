@@ -1,0 +1,6 @@
+﻿  main.c
+  marks.c
+  utils.c
+C:\Storage\SCHOOL\School\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws2\lab\main.c(39,16): warning C4013: 'calculateAverageMark' undefined; assuming extern returning int
+  Generating Code...
+  ws2.1.vcxproj -> C:\Storage\SCHOOL\School\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws2\ws2.1\x64\Debug\ws2.1.exe
