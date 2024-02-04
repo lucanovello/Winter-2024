@@ -1,0 +1,21 @@
+﻿Workshop 4 - Rock, Paper, Scissors
+Luca Novello (gnovello)
+
+
+Individual Logic Assignment - [Logic 3] Pseudocode
+1. Start.
+2. Set a timer for 3 sec.
+3. Create a variable called “playObject”.
+4. Run a function that can output a random number between 1-3.
+5. Is random number 1?
+	a. Yes: Set playObject to “Rock”; continue (step: 8).
+	b. No: continue (step: 6).
+6. Is random number 2?
+	a. Yes: Set playObject to “Paper”; continue (step: 8).
+	b. No: continue (step: 7).
+7. Set playObject to “Scissors”.
+8. Render animated countdown screen.
+9. Does timer = 0 sec?
+	a. Yes: continue (step: 10).
+	b. No: Update timer; continue (step: 8).
+10. End: (Continue to Next Logic).
