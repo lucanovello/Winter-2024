@@ -10,7 +10,6 @@ gnovello@myseneca.ca
 
 void prnGrade(char letterGrade)
 {
-	char finalLetterGrade;
 	if (letterGrade == '+')
 	{
 		printf("A+");
