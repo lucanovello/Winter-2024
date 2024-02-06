@@ -80,6 +80,7 @@ int getMark(int maximumAcceptableMarkValue)
 	else
 	{
 		finalMark = -1;
+		printf("Invalid Mark!\n");
 	}
 	return finalMark;
 };

@@ -40,10 +40,10 @@ void getMarkTester(void);
 void testerProgram(void);
 
 int main(void) {
-   //prnGradeTester();
-   //gradeTester();
-   //getNoOfStudentsTester();
-   //getMarkTester();
+   prnGradeTester();
+   gradeTester();
+   getNoOfStudentsTester();
+   getMarkTester();
    testerProgram();
    return 0;
 }
