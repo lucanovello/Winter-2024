@@ -3,6 +3,7 @@ Luca Novello
 gnovello@myseneca.ca
 038515003
 02-06-2024
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
 */
 
 /***********************************************************************
@@ -39,11 +40,11 @@ void getMarkTester(void);
 void testerProgram(void);
 
 int main(void) {
-   prnGradeTester();
-//   gradeTester();
-//   getNoOfStudentsTester();
-//   getMarkTester();
-//   testerProgram();
+   //prnGradeTester();
+   //gradeTester();
+   //getNoOfStudentsTester();
+   //getMarkTester();
+   testerProgram();
    return 0;
 }
 

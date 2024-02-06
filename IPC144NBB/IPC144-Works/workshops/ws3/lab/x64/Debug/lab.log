@@ -1,7 +1,2 @@
 ﻿  main.c
-  marks.c
-  Generating Code...
-C:\Storage\SCHOOL\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws3\lab\marks.c(14,18): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
-C:\Storage\SCHOOL\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws3\lab\marks.c(23,25): warning C4098: 'prnGrade': 'void' function returning a value
-C:\Storage\SCHOOL\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws3\lab\marks.c(53): warning C4716: 'grade': must return a value
   lab.vcxproj -> C:\Storage\SCHOOL\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws3\lab\x64\Debug\lab.exe

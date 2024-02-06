@@ -11,16 +11,14 @@ gnovello@myseneca.ca
 void prnGrade(char letterGrade)
 {
 	char finalLetterGrade;
-	if (letterGrade == "+" )
+	if (letterGrade == '+')
 	{
-		finalLetterGrade = 'A';
+		printf("A+");
 	}
 	else
 	{
-		finalLetterGrade = letterGrade;
-
+		putchar(letterGrade);
 	}
-	return finalLetterGrade;
 };
 char grade(int markOutOf100)
 {
@@ -50,6 +48,7 @@ char grade(int markOutOf100)
 	{
 		result = '+';
 	}
+	return result;
 };
 int getNoOfStudents(void)
 {
@@ -77,7 +76,7 @@ int getMark(int maximumAcceptableMarkValue)
 	scanf("%d", &studentMark);
 	if (studentMark >= 0 && studentMark <= maximumAcceptableMarkValue)
 	{
-		finalMark = (studentMark / maximumAcceptableMarkValue) * 100;
+		finalMark = (studentMark * 100) / maximumAcceptableMarkValue;
 	}
 	else
 	{
