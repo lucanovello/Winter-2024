@@ -1,0 +1,207 @@
+<mxfile host="app.diagrams.net" modified="2024-02-11T01:20:40.724Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="0g5JHk8cyB2iWiTXwNMz" version="23.1.2" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="3434" dy="1342" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-1" value="Start/Previous Step" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;spacing=20;spacingTop=5;spacingBottom=5;spacingLeft=5;spacingRight=5;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="59" y="160" width="168" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-1" target="_BHGbHKsS6Eedb4s3Qyd-44">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="119" y="324" as="sourcePoint" />
+            <mxPoint x="143" y="254" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-13" target="_BHGbHKsS6Eedb4s3Qyd-87">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="144" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-57" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-56">
+          <mxGeometry x="-0.3766" y="-2" relative="1" as="geometry">
+            <mxPoint x="2" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-13" target="_BHGbHKsS6Eedb4s3Qyd-38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-16" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-20" y="550" />
+              <mxPoint x="-20" y="1430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-97" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-64">
+          <mxGeometry x="-0.9539" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-13" value="&lt;p style=&quot;line-height: 120%;&quot;&gt;Does the customer want to purchase a snack?&lt;/p&gt;" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;rounded=1;arcSize=12;verticalAlign=middle;horizontal=1;spacing=21;spacingBottom=5;spacingTop=5;spacingLeft=5;spacingRight=5;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="74" y="480" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;spacing=12;spacingTop=5;spacingBottom=5;spacingLeft=5;spacingRight=5;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-28" target="_BHGbHKsS6Eedb4s3Qyd-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-25" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];spacing=12;spacingTop=5;spacingBottom=5;spacingLeft=5;spacingRight=5;" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-24">
+          <mxGeometry x="-0.1553" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;spacing=12;spacingTop=5;spacingBottom=5;spacingLeft=5;spacingRight=5;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-28" target="_BHGbHKsS6Eedb4s3Qyd-59">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-27" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];spacing=12;spacingTop=5;spacingBottom=5;spacingLeft=5;spacingRight=5;" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-26">
+          <mxGeometry x="0.0678" relative="1" as="geometry">
+            <mxPoint x="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-28" value="&lt;p style=&quot;line-height: 120%;&quot;&gt;Did the customer order a&amp;nbsp;&quot;Alcoholic Beverage&quot;?&lt;br&gt;&lt;/p&gt;" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;rounded=1;arcSize=12;verticalAlign=middle;horizontal=1;spacing=21;spacingBottom=5;spacingTop=5;spacingLeft=5;spacingRight=5;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="270" y="890" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;spacing=12;spacingTop=5;spacingBottom=5;spacingLeft=5;spacingRight=5;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-23" target="_BHGbHKsS6Eedb4s3Qyd-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-22" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];spacing=12;spacingTop=5;spacingBottom=5;spacingLeft=5;spacingRight=5;" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-21">
+          <mxGeometry x="0.0678" relative="1" as="geometry">
+            <mxPoint x="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-23" target="_BHGbHKsS6Eedb4s3Qyd-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250.67999999999984" y="1130" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="144" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-68" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-66">
+          <mxGeometry x="-0.8265" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-23" value="&lt;p style=&quot;line-height: 120%;&quot;&gt;Did the customer order a&amp;nbsp;&quot;Non-Alcoholic Beverage&quot;?&amp;nbsp;&lt;/p&gt;" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;rounded=1;arcSize=12;verticalAlign=middle;horizontal=1;spacing=21;spacingBottom=5;spacingTop=5;spacingLeft=5;spacingRight=5;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="74" y="890" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-75" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-36" target="_BHGbHKsS6Eedb4s3Qyd-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-36" value="Create a variable called &quot;Snack Cost List&quot; to track name and price of items purchased and initialize to 0" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;spacing=20;spacingTop=30;spacingBottom=30;spacingLeft=30;spacingRight=30;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="29" y="350" width="230" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=-0.047;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-38" target="_BHGbHKsS6Eedb4s3Qyd-53">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="337.67" y="1559.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-38" value="Output &quot;Snack Cost List&quot;" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;spacing=20;spacingTop=20;spacingBottom=20;spacingLeft=30;spacingRight=30;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="256.00000000000006" y="1400" width="168" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-96" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-39" target="_BHGbHKsS6Eedb4s3Qyd-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-39" value="Add associated item from the &quot;Snack Price List&quot; to the &quot;Snack Cost List&quot;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;spacing=10;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="270" y="1090" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.498;entryY=-0.037;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-44" target="_BHGbHKsS6Eedb4s3Qyd-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="143" y="364" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-44" value="Import and store &quot;Snack Price List&quot;" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;spacing=20;spacingTop=20;spacingBottom=20;spacingLeft=20;spacingRight=20;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="49" y="250" width="188" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-53" value="End/Next Step" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;spacing=20;spacingTop=5;spacingBottom=5;spacingLeft=5;spacingRight=5;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="256.00000000000006" y="1500" width="168" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-59" target="_BHGbHKsS6Eedb4s3Qyd-78">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="960" />
+              <mxPoint x="670" y="1280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-110" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-65">
+          <mxGeometry x="-0.9104" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-59" target="_BHGbHKsS6Eedb4s3Qyd-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="429.3199999999997" y="1130" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="540" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-69" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-67">
+          <mxGeometry x="-0.8186" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-59" value="&lt;p style=&quot;line-height: 120%;&quot;&gt;Did the customer order a&amp;nbsp;&quot;Misc. Candy Item&quot;?&lt;br&gt;&lt;/p&gt;" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;rounded=1;arcSize=12;verticalAlign=middle;horizontal=1;spacing=21;spacingBottom=5;spacingTop=5;spacingLeft=5;spacingRight=5;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="470" y="890" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-80" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-78" target="_BHGbHKsS6Eedb4s3Qyd-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-81" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-80">
+          <mxGeometry x="-0.1632" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-78" target="_BHGbHKsS6Eedb4s3Qyd-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-85" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-84">
+          <mxGeometry x="-0.9038" y="1" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-78" value="&lt;p style=&quot;line-height: 120%;&quot;&gt;Is the customer done ordering?&lt;br&gt;&lt;/p&gt;" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;rounded=1;arcSize=12;verticalAlign=middle;horizontal=1;spacing=21;spacingBottom=5;spacingTop=5;spacingLeft=5;spacingRight=5;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="270" y="1210" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-88" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-87">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="144" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-89" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-88">
+          <mxGeometry x="-0.4444" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-87" target="_BHGbHKsS6Eedb4s3Qyd-90">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-92" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="_BHGbHKsS6Eedb4s3Qyd-91">
+          <mxGeometry x="-0.1388" y="2" relative="1" as="geometry">
+            <mxPoint x="2" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-87" value="&lt;p style=&quot;line-height: 120%;&quot;&gt;Are customer account details imported and stored?&lt;/p&gt;" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;rounded=1;arcSize=12;verticalAlign=middle;horizontal=1;spacing=21;spacingBottom=5;spacingTop=5;spacingLeft=5;spacingRight=5;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="74" y="660" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-90" target="_BHGbHKsS6Eedb4s3Qyd-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="850" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="355" y="850" />
+              <mxPoint x="144" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_BHGbHKsS6Eedb4s3Qyd-90" value="Import and store customer account details by scanning QR code." style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;spacing=20;spacingTop=20;spacingBottom=20;spacingLeft=20;spacingRight=20;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="250" y="690" width="210" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
