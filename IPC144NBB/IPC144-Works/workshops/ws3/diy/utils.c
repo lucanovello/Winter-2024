@@ -1,3 +1,9 @@
+/*
+Luca Novello
+gnovello@myseneca.ca
+038515003
+02-13-2024
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
@@ -7,14 +13,12 @@ void flushKey( void ) {
       ch = getchar( );
    } while ( ch != '\n' );
 }
-
 int getInt( ) {
    int num=0;
    scanf( "%d", &num );
    flushKey( );
    return num;
 }
-
 int getIntLimited(int min, int max) {
    int val = min -1;
    do {
@@ -25,7 +29,6 @@ int getIntLimited(int min, int max) {
    } while (val< min || val > max);
    return val;
 }
-
 double getDbl( ) {
    double num = 0.0;
    scanf( "%lf", &num );

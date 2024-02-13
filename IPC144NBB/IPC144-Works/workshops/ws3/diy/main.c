@@ -1,4 +1,10 @@
 /***********************************************************************
+Luca Novello
+gnovello@myseneca.ca
+038515003
+02-13-2024
+***********************************************************************/
+/***********************************************************************
 // IPC Workshop 3 p2: tester program
 //
 // File	main.c
@@ -17,7 +23,6 @@
 ***********************************************************************/
 #include <stdio.h>
 #include "marks.h"   // repeating includes are done on purpose
-#include "marks.h"
 #include "marks.h"
 #include "marks.h"
 #include "report.h"
