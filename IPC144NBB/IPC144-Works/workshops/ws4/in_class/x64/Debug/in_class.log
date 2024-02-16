@@ -1,0 +1,4 @@
+﻿  main.c
+C:\Storage\SCHOOL\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws4\in_class\main.c(7,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+C:\Storage\SCHOOL\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws4\in_class\main.c(7,9): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'int *'
+  in_class.vcxproj -> C:\Storage\SCHOOL\Winter-2024\IPC144NBB\IPC144-Works\workshops\ws4\in_class\x64\Debug\in_class.exe
