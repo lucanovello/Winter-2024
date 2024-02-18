@@ -1,0 +1,28 @@
+﻿Part-5 (Valet Parking Charges)
+Pseudocode:
+1. Start/Previous Step
+2. Create a variable “valetCosts: [Charge]”
+3. Does the customer want “Matinée Standard” parking?
+   a. Yes: Create a new Charge, set name to “Matinée Standard”, amount to 10, and add to “valetCosts”: continue (step: 6)
+   b. No: continue (step: 4)
+4. Does the customer want “Matinée VIP” parking?
+   a. Yes: Create a new Charge, set name to “Matinée VIP”, amount to 15, and add to “valetCosts”: continue (step: 6)
+   b. No: continue (step: 5)
+5. Does the customer want “Evening Standard” parking?
+   a. Yes: Create a new Charge, set name to “Evening Standard”, amount to 20, and add to “valetCosts”: continue (step: 6)
+   b. No: Create a new Charge, set name to “Evening VIP”, amount to 30, and add to “valetCosts”: continue (step: 6)
+6. Does the customer want to leave a tip?
+   a. Yes: Create a new Charge, set name to “Valet Parking Tip” , amount to user input and add to “valetCosts”: continue (step: 7
+   b. No: continue (step: 7)
+7. Output “valetCosts”
+8. End/Next Step
+
+Tests:
+1.	Standard tier valet service during the matinée time frame with a $4.75 tip.
+	Start → Matinée Standard parking? Yes: Create a new Charge, set name to “Matinée Standard”, amount to 10, and add to “valetCosts → Leave a tip? Yes - $4.75  → Output “valetCosts” → End
+2.	Standard tier valet service during the evening time frame without a tip.
+	Start → Matinée Standard parking? No → Matinée VIP parking?  No → Evening Standard parking? Yes: Create a new Charge, set name to “Evening Standard”, amount to 20, and add to “valetCosts” → Leave a tip? No → Output “valetCosts” → End
+3.	VIP tier valet service during the matinée time frame with a $2.50 tip
+	Start → Matinée Standard parking? No → Matinée VIP parking?  Yes: Create a new Charge, set name to “Matinée VIP”, amount to 15, and add to “valetCosts” → Leave a tip? Yes - $2.50 → Output “valetCosts” → End
+4.	VIP tier valet service during the evening time frame without a tip.
+	Start → Matinée Standard parking? No → Matinée VIP parking?  No → Evening Standard parking? No → Evening VIP parking? Create a new Charge, set name to “Evening VIP”, amount to 30, and add to “valetCosts” → Leave a tip? No → Output “valetCosts” → End

@@ -1,0 +1,27 @@
+﻿Part-3 (Discounts)
+Pseudocode:
+1. Start/Previous Step.
+2. Create a variable named “customerTotal” and store group.customers.getTotal()
+3. Create a variable named “ticketTotal” and store group.charges.ticketCosts.getTotal()
+4. Is “customerTotal” < 2?
+   a. Yes: Create a new Charge, set name to “discount” and amount to 0: continue (step: 8)
+   b. No: continue (step: 5)
+5. Is “customerTotal” < 3?
+   a. Yes: Create a new Charge, set name to “discount” and amount to (ticketTotal x 0.05): continue (step: 8)
+   b. No: continue (step: 6)
+6. Is “customerTotal” < 4?
+   a. Yes: Create a new Charge, set name to “discount” and amount to (ticketTotal x 0.15): continue (step: 8)
+   b. No: continue (step: 7)
+7. Is “customerTotal” < 5?
+   a. Yes: Create a new Charge, set name to “discount” and amount to (ticketTotal x 0.2): continue (step: 8)
+   b. No: Create a new Charge, set name to “discount” and amount to (ticketTotal x 0.3): continue (step: 8)
+8. Output “discount”
+9. End/Next Step
+
+Tests:
+1.	One senior goes to the A La Carte venue at 8:00 PM to see the musical “The Walking Dead”. Using your process determine the discount.
+	Start → Number Of Customers < 2? Yes: Create a new Charge, set name to “discount” and amount to 0 → Output discount → End
+2.	One senior, and two adults go to the A La Carte venue at 3:00 PM to see the theater production of “Daenerys Rides Dragons”. Using your process determine the discount.
+	Start →  Number Of Customers < 2? No → Number Of Customers < 3?  No → Number Of Customers < 4? Yes: Create new Charge, set name to “discount” and amount to (ticketTotal x 0.15) → Output discount → End
+3.	Two adults, and five children go to the A La Carte venue at 8:00 PM to see the musical “APS145 Puts Logic to Music!” Using your process determine the discount.
+	Start →  Number Of Customers < 2? No → Number Of Customers < 3?  No → Number Of Customers < 4? No → Number Of Customers < 5? No: Create new Charge, set name to “discount” and amount to (ticketTotal x 0.3) → Output discount → End

@@ -1,0 +1,31 @@
+﻿Part-4 (Snack Charges)
+Pseudocode:
+1. Start/Previous Step
+2. Create a variable named “snackCosts: [Charge]”
+3. Does the customer want to purchase a snack?
+   a. Yes: continue (step: 4)
+   b. No: Create a new Charge, set name to “snackCost”, amount to 0, and add to “snackCosts”: continue (step: 8)
+4. Are customer account details imported and stored?
+   a. Yes: continue (step: 5)
+   b. No: Import and store customer account details by scanning QR code: continue (step: 5)
+5. Did the customer order a "Non-Alcoholic Beverage"?
+   a. Yes: Create a new Charge, set name to "Non-Alcoholic Beverage", amount to 2.25, and add to “snackCosts”: continue (step: 7)
+   b. No: continue (step: 6)
+6. Did the customer order a "Alcoholic Beverage"?
+   a. Yes: Create a new Charge, set name to "Alcoholic Beverage", amount to 7.5, and add to “snackCosts”: continue (step: 7)
+   b. No: Create a new Charge, set name to "Misc. Candy Item", amount to 1.75, and add to “snackCosts”: continue (step: 7)
+7. Is the customer done ordering?
+   a. Yes: continue (step: 8)
+   b. No: continue (step: 5)
+8. Output “snackCosts”
+9. End/Next Step
+
+Tests:
+1.	Purchase of no snacks.
+	Start → purchase a snack? No: Create “snackCost”, 0 Charge - add to snackCosts → Output snackCosts: 0 → End
+2.	Purchase of 4 soft-drinks (Coke, Pepsi, Ginger Ale and Fruitopia). Using your process, determine the cost.
+	Start → purchase a snack? Yes → "Non-Alcoholic Beverage"? Yes: Create "Coke", 2.25 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? Yes: Create "Pepsi", 2.25 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? Yes: Create "Ginger Ale", 2.25 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? Yes: Create "Fruitopia", 2.25 Charge - add to snackCosts → done ordering? No → Output snackCosts: 4 x 2.25 = 9 → End
+3.	Purchase of 2 soft-drinks, 2 beers, and 2 wines. Using your process, determine the cost.
+	Start → purchase a snack? Yes → "Non-Alcoholic Beverage"? Yes: Create "Soft-Drink", 2.25 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? Yes: Create "Soft-Drink", 2.25 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? Yes: Create "Beer", 7.5 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? Yes: Create "Beer", 7.5 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? Yes: Create "Wine", 7.5 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? Yes: Create "Wine", 7.5 Charge - add to snackCosts → done ordering? Yes → Output snackCosts: (2 x 2.25) + (4 x 7.5) = 34.5 → End
+4.	Purchase of 1 wine and 4 chocolate bars.
+	Start → purchase a snack? Yes → "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? Yes: Create "Wine", 7.5 Charge - add to snackCosts → done ordering? No → "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? No  → "Misc. Candy Item"? Yes: Create "Chocolate Bar", 1.75 Charge - add to snackCosts  done ordering? No "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? No  → "Misc. Candy Item"? Yes: Create "Chocolate Bar", 1.75 Charge - add to snackCosts  done ordering? No "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? No  → "Misc. Candy Item"? Yes: Create "Chocolate Bar", 1.75 Charge - add to snackCosts  done ordering? No "Non-Alcoholic Beverage"? No → "Alcoholic Beverage"? No  → "Misc. Candy Item"? Yes: Create "Chocolate Bar", 1.75 Charge - add to snackCosts  done ordering? Yes→ Output snackCosts: (1 x 7.5) + (4 x 1.75) = 14.5 → End

@@ -1,0 +1,108 @@
+﻿Class Name
+	Data
+	Methods
+	Group
+	
+
+	
+
+	
+
+	leader: Customer
+	set(); get();
+	
+
+	customers: [Customer]
+	add(); remove(); getTotal();
+	
+
+	charges: [Charge]
+	add(); remove(); getTotal();
+	
+
+	qrCode: int
+	set(); get();
+	
+
+	creditCard: CreditCard
+	set(); get();
+	
+
+	payment: int
+	set(); get();
+	Customer
+	
+
+	
+
+	
+
+	name: string
+	set(); get();
+	
+
+	email: string
+	set(); get();
+	
+
+	password: string
+	set(); get();
+	
+
+	age: int
+	set(); get();
+	
+
+	creditCard: CreditCard
+	set(); get();
+	Charge
+	
+
+	
+
+	
+
+	name: string
+	set(); get();
+	
+
+	amount: double
+	set(); get();
+	
+
+	time: int
+	set(); get();
+	Event
+	
+
+	
+
+	
+
+	name: string
+	get();
+	
+
+	price: double
+	get();
+	CreditCard
+	
+
+	
+
+	
+
+	number: int
+	set(); get();
+	
+
+	name: string
+	set(); get();
+	
+
+	expiry: int
+	set(); get();
+	
+
+	cvv: int
+	set(); get();
