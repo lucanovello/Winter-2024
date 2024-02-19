@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-17T18:37:38.633Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="cKgeIJANRCgMrUERBbe7" scale="1" border="0" version="23.1.5" type="device">
+<mxfile host="app.diagrams.net" modified="2024-02-19T16:28:54.682Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="ws1DY8awhN6zoaRFnbZ_" scale="1" border="0" version="23.1.5" type="device">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="3217" dy="1230" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3033" dy="1135" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -42,6 +42,11 @@
         </mxCell>
         <mxCell id="Uk-PvzAj1wYRCCwDQagz-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=14;shadow=0;fontFamily=Helvetica;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="_BHGbHKsS6Eedb4s3Qyd-13" target="Uk-PvzAj1wYRCCwDQagz-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6TtYuv1KE7rAj_bC1u9V-0" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" vertex="1" connectable="0" parent="Uk-PvzAj1wYRCCwDQagz-2">
+          <mxGeometry x="-0.4" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" y="3" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="_BHGbHKsS6Eedb4s3Qyd-13" value="&lt;p style=&quot;line-height: 120%;&quot;&gt;Is “customerTotal” &amp;lt; 2?&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/p&gt;" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;rounded=1;arcSize=12;verticalAlign=middle;horizontal=1;spacing=10;spacingBottom=0;spacingTop=0;spacingLeft=15;spacingRight=15;fontSize=14;fontFamily=Helvetica;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="74" y="430" width="140" height="140" as="geometry" />
