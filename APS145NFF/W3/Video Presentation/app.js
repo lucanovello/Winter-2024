@@ -19,7 +19,7 @@ form.addEventListener("submit", e=> {
 })
 
 function handleAccSpanText(value) {
-    accSpan.innerText = value == "ice" ? "cm" : "mm"
+    accSpan.innerText = value == "ice" ? "mm" : "cm"
 }
 
 function handleResults() {
