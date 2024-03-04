@@ -24,6 +24,7 @@ class UserInterface {
     this.scoreTextResults;
     this.highScoreTextResults;
     this.highScoreNewRecord;
+    this.isNewHighScore = false;
     this.init();
   }
   init() {
@@ -198,9 +199,7 @@ class UserInterface {
       this.player.isParticleOn = true;
       this.player.createParticle(this.player.particleCount);
       this.player.isEngineOn = true;
-      this.coinSpawner.createCoins();
-
-      // this.introScreenFade();
+      this.introScreenFade();
     });
     window.addEventListener("contextmenu", (e) => {
       e.preventDefault();
@@ -230,7 +229,6 @@ class UserInterface {
     window.addEventListener("touchend", (e) => {
       mouse.shouldDraw = false;
       mouse.context.clearRect(0, 0, mouse.canvas.width, mouse.canvas.height);
-
       mouse.isMobileControl = false;
       mouse.touchendX = e.changedTouches[0].clientX;
       mouse.touchendY = e.changedTouches[0].clientY;
@@ -294,10 +292,9 @@ class UserInterface {
     this.scoreTextResults.innerText = this.player.score;
     this.highScoreTextResults.innerHTML = `${this.player.highScore}`;
     // Display New Record Handler **************************************************************************************************************
-    if (this.player.score > 0 && this.player.score === this.player.highScore) {
+    if (this.player.score > 0 && this.isNewHighScore) {
       this.highScoreNewRecord.style.animation =
         "flash 0.3s ease infinite alternate";
-      // this.highScoreNewRecord.style.color = `hsl(${this.player.hue}, 100%, 85%)`;
       this.highScoreNewRecord.style.borderColor = `hsl(${this.player.hue}, 100%, 50%)`;
       this.highScoreNewRecord.style.background = `hsla(${this.player.hue}, 100%, 70%, 0.1)`;
       this.highScoreNewRecord.style.boxShadow = `0 0 20px hsla(${this.player.hue}, 100%, 70%, 0.5)`;
@@ -337,14 +334,16 @@ class UserInterface {
       element.value = parseFloat(element.value) - increment;
   }
   introScreenFade() {
+    this.introScreen.style.backgroundColor = `black`;
+    this.introScreen.style.backdropFilter = `blur(20px)`;
+    this.introScreen.style.animation = `fade-blur 3s ease-in-out 1 forwards,
+    fade-bg 2.5s ease-in-out 1 forwards`;
     this.player.isEngineOn = false;
     const timeout =
       parseInt(getComputedStyle(this.introScreen).animationDuration) * 1000;
     this.player.isParticleOn = false;
-
     setTimeout(() => {
       this.player.isParticleOn = true;
-
       setTimeout(() => {
         this.player.isParticleOn = false;
       }, timeout * 0.05);
@@ -364,11 +363,9 @@ class UserInterface {
         this.player.isParticleOn = true;
       }, timeout * 0.4);
     }, timeout * 0.8);
-
     setTimeout(() => {
       this.introScreen.remove();
     }, timeout);
-
     setTimeout(() => {
       this.player.createParticle(this.player.particleCount);
       this.player.isEngineOn = true;
@@ -431,11 +428,8 @@ class Player {
     this.isEngineOn = false;
     this.isParticleOn = false;
     // Stats **************************************************************************************************************
-    this.maxScreenWidth = 2880;
-    this.health = 10;
-    this.damage = 1;
     this.score = 0;
-    this.highScore = 10;
+    this.highScore = 5;
     // Color & Style **************************************************************************************************************
     this.hue = Math.random() * 359;
     this.hueAdjust = 10;
@@ -444,7 +438,6 @@ class Player {
     this.alpha = 1;
     this.lineWidth = 1;
     this.hueIncrement = 0.05;
-    this.cornerRadius = 5;
     this.init();
   }
   init() {
@@ -578,7 +571,10 @@ class Player {
           mouse.touchendY - mouse.touchstartY,
           mouse.touchendX - mouse.touchstartX
         );
-        this.direction.y = -mouse.touchDiffY / (this.canvas.height * 0.1);
+        this.direction.x =
+          Math.abs(mouse.touchDiffX) / (this.canvas.height * 0.1);
+        this.direction.y =
+          Math.abs(mouse.touchDiffY) / (this.canvas.height * 0.1);
       }
       this.direction.x > 1 && (this.direction.x = 1);
       this.direction.x < -1 && (this.direction.x = -1);
@@ -586,12 +582,14 @@ class Player {
       this.direction.y < -1 && (this.direction.y = -1);
       this.vel.x +=
         Math.cos(this.angle) *
+          this.direction.x *
           this.acc.value *
           this.moves.sprint *
           this.moves.brake -
         this.vel.x * this.decel.value;
       this.vel.y +=
         Math.sin(this.angle) *
+          this.direction.y *
           this.acc.value *
           this.moves.sprint *
           this.moves.brake -
@@ -659,6 +657,7 @@ class Player {
   updateHighScore(score) {
     this.highScore = score;
     localStorage.setItem("highScore", `${this.highScore}`);
+    userInterface.isNewHighScore = true;
   }
   dashHandler(e) {
     if (!e.repeat && !this.moves.isDashing) {
@@ -678,21 +677,6 @@ class Player {
   drawPlayer() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     const finalHue = this.hue - this.hueAdjust;
-
-    // if (this.isParticleOn) {
-    //   body.style.background = `radial-gradient(circle at ${
-    //     this.x * this.canvas.width
-    //   }px ${this.y * this.canvas.height}px, hsl(${
-    //     this.hue - 45
-    //   }, 10%, 4%), hsl(205, 5%, 0%) 40%)`;
-    // } else {
-    //   body.style.background = `radial-gradient(circle at ${
-    //     this.x * this.canvas.width
-    //   }px ${this.y * this.canvas.height}px, hsl(${
-    //     this.hue - 45
-    //   }, 10%, 3.25%), hsl(205, 5%, 0%) 40%)`;
-    // }
-
     this.context.save();
     this.context.translate(
       this.x * this.canvas.width,
@@ -845,6 +829,7 @@ class Coin {
     this.brightness = this.coinSpawner.player.brightness;
     this.alpha = 1;
     this.lineWidth = 2;
+    this.isShadowOn = window.innerWidth > 1000 ? true : false;
     this.shadowBlur = 60;
     this.counter = 0;
     this.spinSpeed = 0.1;
@@ -875,11 +860,13 @@ class Coin {
       ${this.coinSpawner.player.saturation}%,
       ${this.coinSpawner.player.brightness + 20}%,
       ${this.alpha})`;
-    this.context.shadowColor = `hsla(${this.coinSpawner.player.hue},
-        ${this.coinSpawner.player.saturation}%,
-        ${70}%,
-        ${0.8})`;
-    this.context.shadowBlur = this.shadowBlur;
+    if (this.isShadowOn) {
+      this.context.shadowColor = `hsla(${this.coinSpawner.player.hue},
+            ${this.coinSpawner.player.saturation}%,
+            ${70}%,
+            ${0.8})`;
+      this.context.shadowBlur = this.shadowBlur;
+    }
     this.context.beginPath();
     // Diamond Shape **************************************************************************************************************
     // this.context.moveTo(x - this.radiusX + this.radiusX * osc, y);
@@ -932,16 +919,16 @@ class Coin {
         },
       });
     }
-    this.context.shadowColor = null;
-    this.context.shadowBlur = 0;
+    if (this.isShadowOn) {
+      this.context.shadowColor = null;
+      this.context.shadowBlur = 0;
+    }
   }
-
   drawParticles() {
     for (let i = 0; i < this.particleArr.length; i++) {
       const particle = this.particleArr[i];
       if (this.radius <= 0.1) {
         this.particleArr.splice(particle, 1);
-        // this.coinSpawner.coinArr.splice(this, 1);
       } else {
         this.context.fillStyle = `hsla(${this.coinSpawner.player.hue}, 
         ${this.coinSpawner.player.saturation * 0.6}%,
@@ -951,7 +938,6 @@ class Coin {
         ${this.coinSpawner.player.saturation * 0.6}%,
         ${this.coinSpawner.player.brightness + 20}%,
         ${this.alpha * 0.9})`;
-
         this.context.beginPath();
         this.context.arc(particle.x, particle.y, this.radius, 0, Math.PI * 2);
         this.context.fill();
@@ -963,25 +949,18 @@ class Coin {
         particle.y += particle.vel.y;
       }
     }
-
     if (this.particleArr.length <= 0) {
       setTimeout(() => {
         this.coinSpawner.createCoins();
       }, this.spawnTime);
       this.coinSpawner.coinArr.splice(this, 1);
     }
-
     this.radius *= 0.85;
-    // this.alpha *= 0.95;
     this.particleAcc *= 0.88;
   }
   destroy() {
     this.createParticles(this.x, this.y, this.particleCount);
     this.isDestroyed = true;
-  }
-  resize(width, height) {
-    this.canvas.width = width;
-    this.canvas.height = height;
   }
 }
 class CoinSpawner {
@@ -1035,10 +1014,6 @@ class CoinSpawner {
   resize(width, height) {
     this.canvas.width = width;
     this.canvas.height = height;
-    for (let i = 0; i < this.coinArr.length; i++) {
-      const coin = this.coinArr[i];
-      coin.resize(this.canvas.width, this.canvas, height);
-    }
   }
 }
 class Star {
@@ -1149,7 +1124,6 @@ class Mouse {
     this.saturation = 80;
     this.brightness = 50;
     this.alpha = 1;
-    this.cornerRadius = 5;
     this.shouldDraw = false;
     this.init();
   }
@@ -1218,19 +1192,16 @@ class Mouse {
     this.canvas.height = height;
   }
 }
-
 // Get random number from range
 function getRandomRange(min, max) {
   return Math.random() * (max - min) + min;
 }
-
 // Instantiate objects **************************************************************************************************************
 const player = new Player(0.5, 0.5);
 const stars = new Stars();
 const coinSpawner = new CoinSpawner(player);
 const mouse = new Mouse(0, 0, 30);
 const userInterface = new UserInterface(player, coinSpawner);
-
 // MAIN FUNCTION **********************************************************************************************************************************
 function animate() {
   userInterface.update(player);
@@ -1241,7 +1212,6 @@ function animate() {
   }
   coinSpawner.draw();
   player.draw();
-
   requestAnimationFrame(animate);
 }
 animate();

@@ -114,10 +114,10 @@
       }
       @keyframes flash {
         0% {
-          filter: opacity(0.1);
+          filter: opacity(1);
         }
         100% {
-          filter: opacity(1);
+          filter: opacity(0.35);
         }
       }
       @keyframes fade-blur {
@@ -193,11 +193,11 @@
         bottom: 0;
         background-color: black;
         backdrop-filter: blur(20px);
-        /* background: hsla(0, 0%, 0%, 1); */
+        background: hsla(0, 0%, 0%, 1);
         filter: opacity(1);
         animation: fade-blur 3s ease-in-out 1 forwards,
           fade-bg 2.5s ease-in-out 1 forwards;
-        z-index: 9999999999;
+        z-index: 99999999;
       }
 
       .text-container {
@@ -256,7 +256,7 @@
 
       .score-container {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
         position: fixed;
@@ -266,7 +266,7 @@
         font-size: calc(1.2rem + 0.5vw);
         font-weight: 900;
         line-height: 1.2em;
-        z-index: 99999;
+        z-index: 999999;
         animation: float-t-mid 120s ease-in-out infinite;
         /* filter-near 30s ease-in-out infinite alternate; */
       }
@@ -284,26 +284,30 @@
       }
       .score-text-title,
       .high-score-text-title {
+        width: 120px;
+        margin-right: 1ch;
+        padding: 0 0.2em;
         font-family: "Poppins", sans-serif;
         color: hsl(45, 100%, 50%);
       }
-      .score-text-title {
-        margin-right: 2.05ch;
-      }
+
       .high-score-text-title {
-        margin-right: 1ch;
         cursor: pointer;
+        border: 1px solid transparent;
         transition: 0.1s ease;
       }
       .high-score-text-title:hover {
-        transition: 0.3s ease;
-        animation: flash 0.2s linear infinite alternate;
+        animation: flash 0.5s linear infinite alternate;
       }
       .score-text-results,
       .high-score-text-results {
         font-family: "Poppins", sans-serif;
         font-weight: 200;
         color: white;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
       }
       .high-score-new-record {
         width: 100%;
@@ -351,10 +355,6 @@
           filter-near 30s ease-in-out infinite alternate;
       }
 
-      .options-icon-wrapper:hover {
-        backdrop-filter: blur(7px) saturate(1);
-        -webkit-backdrop-filter: blur(7px) saturate(1);
-      }
       .options-icon-top,
       .options-icon-bottom {
         width: 60%;
@@ -365,7 +365,6 @@
       .options-icon-bottom:hover,
       .options-icon-wrapper:hover .options-icon-top,
       .options-icon-wrapper:hover .options-icon-bottom {
-        border: 2px dotted hsla(0, 0%, 70%, 1);
         background: hsla(0, 0%, 100%, 0.7);
       }
       .options-icon-top {
@@ -606,6 +605,7 @@
           this.scoreTextResults;
           this.highScoreTextResults;
           this.highScoreNewRecord;
+          this.isNewHighScore = false;
           this.init();
         }
         init() {
@@ -801,9 +801,7 @@
             this.player.isParticleOn = true;
             this.player.createParticle(this.player.particleCount);
             this.player.isEngineOn = true;
-            this.coinSpawner.createCoins();
-
-            // this.introScreenFade();
+            this.introScreenFade();
           });
           window.addEventListener("contextmenu", (e) => {
             e.preventDefault();
@@ -844,7 +842,6 @@
               mouse.canvas.width,
               mouse.canvas.height
             );
-
             mouse.isMobileControl = false;
             mouse.touchendX = e.changedTouches[0].clientX;
             mouse.touchendY = e.changedTouches[0].clientY;
@@ -911,13 +908,9 @@
           this.scoreTextResults.innerText = this.player.score;
           this.highScoreTextResults.innerHTML = `${this.player.highScore}`;
           // Display New Record Handler **************************************************************************************************************
-          if (
-            this.player.score > 0 &&
-            this.player.score === this.player.highScore
-          ) {
+          if (this.player.score > 0 && this.isNewHighScore) {
             this.highScoreNewRecord.style.animation =
               "flash 0.3s ease infinite alternate";
-            // this.highScoreNewRecord.style.color = `hsl(${this.player.hue}, 100%, 85%)`;
             this.highScoreNewRecord.style.borderColor = `hsl(${this.player.hue}, 100%, 50%)`;
             this.highScoreNewRecord.style.background = `hsla(${this.player.hue}, 100%, 70%, 0.1)`;
             this.highScoreNewRecord.style.boxShadow = `0 0 20px hsla(${this.player.hue}, 100%, 70%, 0.5)`;
@@ -959,15 +952,17 @@
             element.value = parseFloat(element.value) - increment;
         }
         introScreenFade() {
+          this.introScreen.style.backgroundColor = `black`;
+          this.introScreen.style.backdropFilter = `blur(20px)`;
+          this.introScreen.style.animation = `fade-blur 3s ease-in-out 1 forwards,
+    fade-bg 2.5s ease-in-out 1 forwards`;
           this.player.isEngineOn = false;
           const timeout =
             parseInt(getComputedStyle(this.introScreen).animationDuration) *
             1000;
           this.player.isParticleOn = false;
-
           setTimeout(() => {
             this.player.isParticleOn = true;
-
             setTimeout(() => {
               this.player.isParticleOn = false;
             }, timeout * 0.05);
@@ -987,11 +982,9 @@
               this.player.isParticleOn = true;
             }, timeout * 0.4);
           }, timeout * 0.8);
-
           setTimeout(() => {
             this.introScreen.remove();
           }, timeout);
-
           setTimeout(() => {
             this.player.createParticle(this.player.particleCount);
             this.player.isEngineOn = true;
@@ -1054,11 +1047,8 @@
           this.isEngineOn = false;
           this.isParticleOn = false;
           // Stats **************************************************************************************************************
-          this.maxScreenWidth = 2880;
-          this.health = 10;
-          this.damage = 1;
           this.score = 0;
-          this.highScore = 10;
+          this.highScore = 5;
           // Color & Style **************************************************************************************************************
           this.hue = Math.random() * 359;
           this.hueAdjust = 10;
@@ -1067,7 +1057,6 @@
           this.alpha = 1;
           this.lineWidth = 1;
           this.hueIncrement = 0.05;
-          this.cornerRadius = 5;
           this.init();
         }
         init() {
@@ -1202,7 +1191,10 @@
                 mouse.touchendY - mouse.touchstartY,
                 mouse.touchendX - mouse.touchstartX
               );
-              this.direction.y = -mouse.touchDiffY / (this.canvas.height * 0.1);
+              this.direction.x =
+                Math.abs(mouse.touchDiffX) / (this.canvas.height * 0.1);
+              this.direction.y =
+                Math.abs(mouse.touchDiffY) / (this.canvas.height * 0.1);
             }
             this.direction.x > 1 && (this.direction.x = 1);
             this.direction.x < -1 && (this.direction.x = -1);
@@ -1210,12 +1202,14 @@
             this.direction.y < -1 && (this.direction.y = -1);
             this.vel.x +=
               Math.cos(this.angle) *
+                this.direction.x *
                 this.acc.value *
                 this.moves.sprint *
                 this.moves.brake -
               this.vel.x * this.decel.value;
             this.vel.y +=
               Math.sin(this.angle) *
+                this.direction.y *
                 this.acc.value *
                 this.moves.sprint *
                 this.moves.brake -
@@ -1289,6 +1283,7 @@
         updateHighScore(score) {
           this.highScore = score;
           localStorage.setItem("highScore", `${this.highScore}`);
+          userInterface.isNewHighScore = true;
         }
         dashHandler(e) {
           if (!e.repeat && !this.moves.isDashing) {
@@ -1308,21 +1303,6 @@
         drawPlayer() {
           this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
           const finalHue = this.hue - this.hueAdjust;
-
-          // if (this.isParticleOn) {
-          //   body.style.background = `radial-gradient(circle at ${
-          //     this.x * this.canvas.width
-          //   }px ${this.y * this.canvas.height}px, hsl(${
-          //     this.hue - 45
-          //   }, 10%, 4%), hsl(205, 5%, 0%) 40%)`;
-          // } else {
-          //   body.style.background = `radial-gradient(circle at ${
-          //     this.x * this.canvas.width
-          //   }px ${this.y * this.canvas.height}px, hsl(${
-          //     this.hue - 45
-          //   }, 10%, 3.25%), hsl(205, 5%, 0%) 40%)`;
-          // }
-
           this.context.save();
           this.context.translate(
             this.x * this.canvas.width,
@@ -1480,6 +1460,7 @@
           this.brightness = this.coinSpawner.player.brightness;
           this.alpha = 1;
           this.lineWidth = 2;
+          this.isShadowOn = window.innerWidth > 1000 ? true : false;
           this.shadowBlur = 60;
           this.counter = 0;
           this.spinSpeed = 0.1;
@@ -1510,11 +1491,13 @@
       ${this.coinSpawner.player.saturation}%,
       ${this.coinSpawner.player.brightness + 20}%,
       ${this.alpha})`;
-          this.context.shadowColor = `hsla(${this.coinSpawner.player.hue},
-        ${this.coinSpawner.player.saturation}%,
-        ${70}%,
-        ${0.8})`;
-          this.context.shadowBlur = this.shadowBlur;
+          if (this.isShadowOn) {
+            this.context.shadowColor = `hsla(${this.coinSpawner.player.hue},
+            ${this.coinSpawner.player.saturation}%,
+            ${70}%,
+            ${0.8})`;
+            this.context.shadowBlur = this.shadowBlur;
+          }
           this.context.beginPath();
           // Diamond Shape **************************************************************************************************************
           // this.context.moveTo(x - this.radiusX + this.radiusX * osc, y);
@@ -1567,16 +1550,16 @@
               },
             });
           }
-          this.context.shadowColor = null;
-          this.context.shadowBlur = 0;
+          if (this.isShadowOn) {
+            this.context.shadowColor = null;
+            this.context.shadowBlur = 0;
+          }
         }
-
         drawParticles() {
           for (let i = 0; i < this.particleArr.length; i++) {
             const particle = this.particleArr[i];
             if (this.radius <= 0.1) {
               this.particleArr.splice(particle, 1);
-              // this.coinSpawner.coinArr.splice(this, 1);
             } else {
               this.context.fillStyle = `hsla(${this.coinSpawner.player.hue}, 
         ${this.coinSpawner.player.saturation * 0.6}%,
@@ -1586,7 +1569,6 @@
         ${this.coinSpawner.player.saturation * 0.6}%,
         ${this.coinSpawner.player.brightness + 20}%,
         ${this.alpha * 0.9})`;
-
               this.context.beginPath();
               this.context.arc(
                 particle.x,
@@ -1604,25 +1586,18 @@
               particle.y += particle.vel.y;
             }
           }
-
           if (this.particleArr.length <= 0) {
             setTimeout(() => {
               this.coinSpawner.createCoins();
             }, this.spawnTime);
             this.coinSpawner.coinArr.splice(this, 1);
           }
-
           this.radius *= 0.85;
-          // this.alpha *= 0.95;
           this.particleAcc *= 0.88;
         }
         destroy() {
           this.createParticles(this.x, this.y, this.particleCount);
           this.isDestroyed = true;
-        }
-        resize(width, height) {
-          this.canvas.width = width;
-          this.canvas.height = height;
         }
       }
       class CoinSpawner {
@@ -1676,10 +1651,6 @@
         resize(width, height) {
           this.canvas.width = width;
           this.canvas.height = height;
-          for (let i = 0; i < this.coinArr.length; i++) {
-            const coin = this.coinArr[i];
-            coin.resize(this.canvas.width, this.canvas, height);
-          }
         }
       }
       class Star {
@@ -1795,7 +1766,6 @@
           this.saturation = 80;
           this.brightness = 50;
           this.alpha = 1;
-          this.cornerRadius = 5;
           this.shouldDraw = false;
           this.init();
         }
@@ -1864,19 +1834,16 @@
           this.canvas.height = height;
         }
       }
-
       // Get random number from range
       function getRandomRange(min, max) {
         return Math.random() * (max - min) + min;
       }
-
       // Instantiate objects **************************************************************************************************************
       const player = new Player(0.5, 0.5);
       const stars = new Stars();
       const coinSpawner = new CoinSpawner(player);
       const mouse = new Mouse(0, 0, 30);
       const userInterface = new UserInterface(player, coinSpawner);
-
       // MAIN FUNCTION **********************************************************************************************************************************
       function animate() {
         userInterface.update(player);
@@ -1887,7 +1854,6 @@
         }
         coinSpawner.draw();
         player.draw();
-
         requestAnimationFrame(animate);
       }
       animate();

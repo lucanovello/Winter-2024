@@ -99,10 +99,10 @@
 }
 @keyframes flash {
   0% {
-    filter: opacity(0.1);
+    filter: opacity(1);
   }
   100% {
-    filter: opacity(1);
+    filter: opacity(0.35);
   }
 }
 @keyframes fade-blur {
@@ -178,11 +178,11 @@ canvas {
   bottom: 0;
   background-color: black;
   backdrop-filter: blur(20px);
-  /* background: hsla(0, 0%, 0%, 1); */
+  background: hsla(0, 0%, 0%, 1);
   filter: opacity(1);
   animation: fade-blur 3s ease-in-out 1 forwards,
     fade-bg 2.5s ease-in-out 1 forwards;
-  z-index: 9999999999;
+  z-index: 99999999;
 }
 
 .text-container {
@@ -241,7 +241,7 @@ canvas {
 
 .score-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   position: fixed;
@@ -251,7 +251,7 @@ canvas {
   font-size: calc(1.2rem + 0.5vw);
   font-weight: 900;
   line-height: 1.2em;
-  z-index: 99999;
+  z-index: 999999;
   animation: float-t-mid 120s ease-in-out infinite;
   /* filter-near 30s ease-in-out infinite alternate; */
 }
@@ -269,26 +269,30 @@ canvas {
 }
 .score-text-title,
 .high-score-text-title {
+  width: 120px;
+  margin-right: 1ch;
+  padding: 0 0.2em;
   font-family: "Poppins", sans-serif;
   color: hsl(45, 100%, 50%);
 }
-.score-text-title {
-  margin-right: 2.05ch;
-}
+
 .high-score-text-title {
-  margin-right: 1ch;
   cursor: pointer;
+  border: 1px solid transparent;
   transition: 0.1s ease;
 }
 .high-score-text-title:hover {
-  transition: 0.3s ease;
-  animation: flash 0.2s linear infinite alternate;
+  animation: flash 0.5s linear infinite alternate;
 }
 .score-text-results,
 .high-score-text-results {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
 }
 .high-score-new-record {
   width: 100%;
@@ -336,10 +340,6 @@ canvas {
     filter-near 30s ease-in-out infinite alternate;
 }
 
-.options-icon-wrapper:hover {
-  backdrop-filter: blur(7px) saturate(1);
-  -webkit-backdrop-filter: blur(7px) saturate(1);
-}
 .options-icon-top,
 .options-icon-bottom {
   width: 60%;
@@ -350,7 +350,6 @@ canvas {
 .options-icon-bottom:hover,
 .options-icon-wrapper:hover .options-icon-top,
 .options-icon-wrapper:hover .options-icon-bottom {
-  border: 2px dotted hsla(0, 0%, 70%, 1);
   background: hsla(0, 0%, 100%, 0.7);
 }
 .options-icon-top {
