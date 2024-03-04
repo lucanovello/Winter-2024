@@ -1,6 +1,7 @@
 class UserInterface {
-  constructor(player) {
+  constructor(player, coinSpawner) {
     this.player = player;
+    this.coinSpawner = coinSpawner;
     this.isOptionsOpen = false;
     // Elements **************************************************************************************************************
     this.introScreen;
@@ -164,13 +165,13 @@ class UserInterface {
     this.highScoreNewRecord = document.getElementById("high-score-new-record");
   }
   initScreenOptions() {
-    // Initialize Screen Options **************************************************************************************************************
-
+    // Acceleration option **************************************************************************************************************
     this.accInput.min = this.player.acc.min * this.player.acc.normMultiplier;
     this.accInput.max = this.player.acc.max * this.player.acc.normMultiplier;
     this.accInput.step = this.player.acc.step * this.player.acc.normMultiplier;
     this.accInput.value =
       this.player.acc.value * this.player.acc.normMultiplier;
+    // Deceleration option **************************************************************************************************************
     this.decelInput.min =
       this.player.decel.min * this.player.decel.normMultiplier;
     this.decelInput.max =
@@ -179,6 +180,7 @@ class UserInterface {
       this.player.decel.step * this.player.decel.normMultiplier;
     this.decelInput.value =
       this.player.decel.value * this.player.decel.normMultiplier;
+    // Turn Speed option **************************************************************************************************************
     this.turnSpeedInput.min =
       this.player.turnSpeed.min * this.player.turnSpeed.normMultiplier;
     this.turnSpeedInput.max =
@@ -187,12 +189,18 @@ class UserInterface {
       this.player.turnSpeed.step * this.player.turnSpeed.normMultiplier;
     this.turnSpeedInput.value =
       this.player.turnSpeed.value * this.player.turnSpeed.normMultiplier;
+    // Particle Count option **************************************************************************************************************
     this.particleCountInput.value = this.player.particleCountDefaultValue;
   }
   initEvents() {
     // Window Event **************************************************************************************************************
     window.addEventListener("load", (e) => {
-      this.introScreenFade();
+      this.player.isParticleOn = true;
+      this.player.createParticle(this.player.particleCount);
+      this.player.isEngineOn = true;
+      this.coinSpawner.createCoins();
+
+      // this.introScreenFade();
     });
     window.addEventListener("contextmenu", (e) => {
       e.preventDefault();
@@ -255,10 +263,9 @@ class UserInterface {
       this.mobileNavCloseHandler(!this.isOptionsOpen);
     });
     this.highScoreTextTitle.addEventListener("mousedown", () => {
-      this.player.updateHighScore(0);
+      this.player.updateHighScore(this.player.score);
     });
     window.addEventListener("mousedown", (e) => {
-      e.preventDefault();
       if (e.target.dataset.group != "options") {
         this.mobileNavCloseHandler(false);
       }
@@ -290,11 +297,10 @@ class UserInterface {
     if (this.player.score > 0 && this.player.score === this.player.highScore) {
       this.highScoreNewRecord.style.animation =
         "flash 0.3s ease infinite alternate";
-      this.highScoreNewRecord.style.color = `hsl(${this.player.hue}, 100%, 85%)`;
+      // this.highScoreNewRecord.style.color = `hsl(${this.player.hue}, 100%, 85%)`;
       this.highScoreNewRecord.style.borderColor = `hsl(${this.player.hue}, 100%, 50%)`;
       this.highScoreNewRecord.style.background = `hsla(${this.player.hue}, 100%, 70%, 0.1)`;
-    } else {
-      // this.highScoreNewRecord.style.display = "none";
+      this.highScoreNewRecord.style.boxShadow = `0 0 20px hsla(${this.player.hue}, 100%, 70%, 0.5)`;
     }
   }
   addElement(
@@ -331,30 +337,43 @@ class UserInterface {
       element.value = parseFloat(element.value) - increment;
   }
   introScreenFade() {
-    const delayTimeout = 150;
+    this.player.isEngineOn = false;
     const timeout =
       parseInt(getComputedStyle(this.introScreen).animationDuration) * 1000;
+    this.player.isParticleOn = false;
 
     setTimeout(() => {
-      this.player.isReady = true;
+      this.player.isParticleOn = true;
 
       setTimeout(() => {
-        this.player.isReady = false;
-      }, delayTimeout);
-
+        this.player.isParticleOn = false;
+      }, timeout * 0.05);
       setTimeout(() => {
-        this.player.isReady = true;
-      }, delayTimeout * 3);
-
+        this.player.isParticleOn = true;
+      }, timeout * 0.1);
       setTimeout(() => {
-        this.player.isReady = false;
-      }, delayTimeout * 3.5);
-
+        this.player.isParticleOn = false;
+      }, timeout * 0.15);
       setTimeout(() => {
-        this.player.isReady = true;
-      }, delayTimeout * 7);
+        this.player.isParticleOn = true;
+      }, timeout * 0.2);
+      setTimeout(() => {
+        this.player.isParticleOn = false;
+      }, timeout * 0.25);
+      setTimeout(() => {
+        this.player.isParticleOn = true;
+      }, timeout * 0.4);
+    }, timeout * 0.8);
+
+    setTimeout(() => {
       this.introScreen.remove();
     }, timeout);
+
+    setTimeout(() => {
+      this.player.createParticle(this.player.particleCount);
+      this.player.isEngineOn = true;
+      this.coinSpawner.createCoins();
+    }, timeout * 1.3);
   }
 }
 class Player {
@@ -409,7 +428,8 @@ class Player {
     this.particleCountDefaultValue = 20;
     this.particleArr = [];
     this.particleCount = this.particleCountDefaultValue;
-    this.isReady = false;
+    this.isEngineOn = false;
+    this.isParticleOn = false;
     // Stats **************************************************************************************************************
     this.maxScreenWidth = 2880;
     this.health = 10;
@@ -526,12 +546,12 @@ class Player {
   }
   update(mouse, userInterface, coinSpawner) {
     this.updateAttributes(userInterface);
-    this.updateMovement(mouse);
-    if (this.isReady) {
-      this.moves.brake = 1;
-      this.createParticle(this.particleCount);
+    if (this.isEngineOn) {
+      this.updateMovement(mouse);
     } else {
-      this.moves.brake = 0;
+    }
+    if (this.isParticleOn) {
+      this.createParticle(this.particleCount);
     }
     if (coinSpawner.coinArr.length > 0) {
       this.checkCollision(coinSpawner);
@@ -599,42 +619,39 @@ class Player {
     this.y += this.vel.y / this.canvas.height;
   }
   checkCollision(object, isSquare = false) {
-    const coin = object.coinArr[0];
-    if (isSquare) {
-      // Square collision
-      if (
-        this.x * object.canvas.width - this.radius >
-          coin.x * object.canvas.width - coin.radius &&
-        this.x * object.canvas.width + this.radius <
-          coin.x * object.canvas.width + coin.radius &&
-        this.y * object.canvas.height - this.radius >
-          coin.y * object.canvas.height - coin.radius &&
-        this.y * object.canvas.height + this.radius <
-          coin.y * object.canvas.height + coin.radius
-      ) {
-        this.score += 1;
-        if (this.score > this.highScore) {
-          this.highScore = this.score;
-          localStorage.setItem("highScore", `${this.highScore}`);
+    for (let i = 0; i < object.coinArr.length; i++) {
+      const coin = object.coinArr[i];
+      if (isSquare) {
+        // Square collision
+        if (
+          this.x * object.canvas.width - this.radius >
+            coin.x * object.canvas.width - coin.radius &&
+          this.x * object.canvas.width + this.radius <
+            coin.x * object.canvas.width + coin.radius &&
+          this.y * object.canvas.height - this.radius >
+            coin.y * object.canvas.height - coin.radius &&
+          this.y * object.canvas.height + this.radius <
+            coin.y * object.canvas.height + coin.radius
+        ) {
+          if (!coin.isDestroyed && distance < coin.radius * 0.5 + this.radius) {
+            this.updateScore(coin.points);
+            coin.destroy();
+          }
         }
-        object.coinArr = [];
-        setTimeout(() => {
-          object.createCoins();
-        }, object.coinSpawnTime);
-      }
-    } else {
-      // Circle collision
-      const dx = (coin.x - this.x) * object.canvas.width;
-      const dy = (coin.y - this.y) * object.canvas.height;
-      const distance = Math.hypot(dx, dy);
-      if (!coin.isDestroyed && distance < coin.radius * 0.5 + this.radius) {
-        this.updateScore();
-        coin.destroy();
+      } else {
+        // Circle collision
+        const dx = (coin.x - this.x) * object.canvas.width;
+        const dy = (coin.y - this.y) * object.canvas.height;
+        const distance = Math.hypot(dx, dy);
+        if (!coin.isDestroyed && distance < coin.radius * 0.5 + this.radius) {
+          this.updateScore(coin.points);
+          coin.destroy();
+        }
       }
     }
   }
-  updateScore() {
-    this.score += 1;
+  updateScore(scoreIncrement) {
+    this.score += scoreIncrement;
     if (this.score > this.highScore) {
       this.updateHighScore(this.score);
     }
@@ -661,11 +678,21 @@ class Player {
   drawPlayer() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     const finalHue = this.hue - this.hueAdjust;
-    body.style.background = `radial-gradient(circle at ${
-      this.x * this.canvas.width
-    }px ${this.y * this.canvas.height}px, hsl(${
-      this.hue - 45
-    }, 10%, 5%), hsl(205, 5%, 0%) 40%)`;
+
+    // if (this.isParticleOn) {
+    //   body.style.background = `radial-gradient(circle at ${
+    //     this.x * this.canvas.width
+    //   }px ${this.y * this.canvas.height}px, hsl(${
+    //     this.hue - 45
+    //   }, 10%, 4%), hsl(205, 5%, 0%) 40%)`;
+    // } else {
+    //   body.style.background = `radial-gradient(circle at ${
+    //     this.x * this.canvas.width
+    //   }px ${this.y * this.canvas.height}px, hsl(${
+    //     this.hue - 45
+    //   }, 10%, 3.25%), hsl(205, 5%, 0%) 40%)`;
+    // }
+
     this.context.save();
     this.context.translate(
       this.x * this.canvas.width,
@@ -805,7 +832,7 @@ class Particle {
   }
 }
 class Coin {
-  constructor(coinSpawner, x, y) {
+  constructor(coinSpawner, x, y, points = 1) {
     this.coinSpawner = coinSpawner;
     this.canvas = this.coinSpawner.canvas;
     this.context = this.coinSpawner.context;
@@ -818,12 +845,15 @@ class Coin {
     this.brightness = this.coinSpawner.player.brightness;
     this.alpha = 1;
     this.lineWidth = 2;
+    this.shadowBlur = 60;
     this.counter = 0;
     this.spinSpeed = 0.1;
     this.isDestroyed = false;
     this.particleArr = [];
-    this.particleCount = 15;
-    this.particleVel = { x: 1, y: 1 };
+    this.particleCount = 10;
+    this.particleAcc = 5;
+    this.particleVel = { x: 0, y: 0 };
+    this.points = points;
   }
   draw() {
     if (this.isDestroyed) {
@@ -845,6 +875,11 @@ class Coin {
       ${this.coinSpawner.player.saturation}%,
       ${this.coinSpawner.player.brightness + 20}%,
       ${this.alpha})`;
+    this.context.shadowColor = `hsla(${this.coinSpawner.player.hue},
+        ${this.coinSpawner.player.saturation}%,
+        ${70}%,
+        ${0.8})`;
+    this.context.shadowBlur = this.shadowBlur;
     this.context.beginPath();
     // Diamond Shape **************************************************************************************************************
     // this.context.moveTo(x - this.radiusX + this.radiusX * osc, y);
@@ -877,69 +912,68 @@ class Coin {
     this.context.lineTo(x, y - this.radius * 0.5);
     this.context.lineTo(x + this.radiusX + this.radiusX * -osc, y);
     this.context.lineTo(x, y + this.radius * 0.5);
-    this.context.lineTo(x + -this.radiusX + this.radiusX * osc, y);
+    this.context.lineTo(x - this.radiusX + this.radiusX * osc, y);
     this.context.fill();
     this.context.stroke();
     this.context.closePath();
     this.counter += this.spinSpeed;
   }
   createParticles(x, y, particleCount) {
+    this.radius *= 0.3;
     for (let i = 0; i < particleCount; i++) {
       const angle = i * ((Math.PI * 2) / particleCount);
-      const acc = 0.002;
       this.particleArr.push({
-        x: x,
-        y: y,
-        radius: 1,
+        x: this.x * this.canvas.width,
+        y: this.y * this.canvas.height,
         angle: angle,
-        acc: acc,
         vel: {
-          x: Math.cos(angle) * acc,
-          y: Math.sin(angle) * acc,
+          x: Math.cos(angle) * this.particleAcc,
+          y: Math.sin(angle) * this.particleAcc,
         },
       });
     }
+    this.context.shadowColor = null;
+    this.context.shadowBlur = 0;
   }
+
   drawParticles() {
-    if (this.alpha <= 0.001) {
-      setTimeout(() => {
-        this.coinSpawner.createCoins();
-      }, this.coinSpawner.spawnTime);
-      this.coinSpawner.coinArr.splice(this, 1);
-    } else {
-      this.context.fillStyle = `hsla(${this.hue}, 
-        ${this.saturation}%,
-        ${this.brightness}%,
-        ${this.alpha * 0.4})`;
-      this.context.strokeStyle = `hsla(${this.hue},
-          ${this.saturation}%,
-          ${this.brightness + 20}%,
-          ${this.alpha * 0.8})`;
+    for (let i = 0; i < this.particleArr.length; i++) {
+      const particle = this.particleArr[i];
+      if (this.radius <= 0.1) {
+        this.particleArr.splice(particle, 1);
+        // this.coinSpawner.coinArr.splice(this, 1);
+      } else {
+        this.context.fillStyle = `hsla(${this.coinSpawner.player.hue}, 
+        ${this.coinSpawner.player.saturation * 0.6}%,
+        ${this.coinSpawner.player.brightness}%,
+        ${this.alpha * 0.7})`;
+        this.context.strokeStyle = `hsla(${this.coinSpawner.player.hue},
+        ${this.coinSpawner.player.saturation * 0.6}%,
+        ${this.coinSpawner.player.brightness + 20}%,
+        ${this.alpha * 0.9})`;
 
-      // for (let i = 0; i < this.particleArr.length; i++) {
-      //   const particle = this.particleArr[i];
-      // }
-
-      this.context.beginPath();
-      this.context.arc(
-        this.particleArr[0].x * this.canvas.width,
-        this.particleArr[0].y * this.canvas.height,
-        this.particleArr[0].radius,
-        0,
-        Math.PI * 2
-      );
-      this.context.fill();
-      this.context.stroke();
-      this.context.closePath();
-      this.particleArr[0].x += this.particleArr[0].vel.x * 0.5;
-      this.particleArr[0].y += this.particleArr[0].vel.y;
-      this.particleArr[0].vel.x *= 0.98;
-      this.particleArr[0].vel.y *= 0.98;
-      this.particleArr[0].radius += this.radius * 0.05;
-      if (this.particleArr[0].radius >= this.radius * 0.4) {
-        this.alpha *= 0.8;
+        this.context.beginPath();
+        this.context.arc(particle.x, particle.y, this.radius, 0, Math.PI * 2);
+        this.context.fill();
+        this.context.stroke();
+        this.context.closePath();
+        particle.vel.x = Math.cos(particle.angle) * this.particleAcc;
+        particle.vel.y = Math.sin(particle.angle) * this.particleAcc;
+        particle.x += particle.vel.x;
+        particle.y += particle.vel.y;
       }
     }
+
+    if (this.particleArr.length <= 0) {
+      setTimeout(() => {
+        this.coinSpawner.createCoins();
+      }, this.spawnTime);
+      this.coinSpawner.coinArr.splice(this, 1);
+    }
+
+    this.radius *= 0.85;
+    // this.alpha *= 0.95;
+    this.particleAcc *= 0.88;
   }
   destroy() {
     this.createParticles(this.x, this.y, this.particleCount);
@@ -959,7 +993,6 @@ class CoinSpawner {
     this.spawnTime = 500;
     this.isReady = false;
     this.init();
-    this.createCoins();
   }
   init() {
     this.initCanvas();
@@ -980,10 +1013,17 @@ class CoinSpawner {
       this.resize(window.innerWidth, window.innerHeight);
     });
   }
-  createCoins() {
-    this.coinArr.push(
-      new Coin(this, getRandomRange(0.1, 0.9), getRandomRange(0.1, 0.9))
-    );
+  createCoins(coinCount = 1) {
+    for (let i = 0; i < coinCount; i++) {
+      this.coinArr.push(
+        new Coin(
+          this,
+          getRandomRange(0.05, 0.95),
+          getRandomRange(0.05, 0.95),
+          1
+        )
+      );
+    }
   }
   draw() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -992,18 +1032,12 @@ class CoinSpawner {
       coin.draw();
     }
   }
-  destroyCoin() {
-    this.coinArr = [];
-    setTimeout(() => {
-      this.createCoins();
-    }, this.spawnTime);
-  }
   resize(width, height) {
     this.canvas.width = width;
     this.canvas.height = height;
-    for (let i = 0; i < this.coinArr; i++) {
+    for (let i = 0; i < this.coinArr.length; i++) {
       const coin = this.coinArr[i];
-      coin.resize(this.canvas.width, this.canvas.height);
+      coin.resize(this.canvas.width, this.canvas, height);
     }
   }
 }
@@ -1191,13 +1225,11 @@ function getRandomRange(min, max) {
 }
 
 // Instantiate objects **************************************************************************************************************
-const player2 = new Player(0.47, 0.47);
 const player = new Player(0.5, 0.5);
-const player3 = new Player(0.53, 0.53);
 const stars = new Stars();
 const coinSpawner = new CoinSpawner(player);
 const mouse = new Mouse(0, 0, 30);
-const userInterface = new UserInterface(player);
+const userInterface = new UserInterface(player, coinSpawner);
 
 // MAIN FUNCTION **********************************************************************************************************************************
 function animate() {
