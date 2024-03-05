@@ -1,8 +1,12 @@
 /* FONTS ************************************************************************************************************ */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 /* font-family: 'Poppins', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+/* font-family: "Raleway", sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap");
 /* font-family: 'Roboto', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+/* font-family: "Press Start 2P", system-ui; */
 /* ANIMATIONS ************************************************************************************************************ */
 @keyframes filter-near {
   0% {
@@ -20,81 +24,84 @@
     filter: blur(0px) contrast(1) brightness(1);
   }
   50% {
-    filter: blur(0.1px) contrast(0.92) brightness(0.75);
+    filter: blur(0.2px) contrast(0.8) brightness(0.75);
   }
   100% {
-    filter: blur(1px) contrast(0.85) brightness(0.55);
+    filter: blur(1.2px) contrast(0.65) brightness(0.5);
   }
 }
 @keyframes float-t-near {
   0% {
-    transform: perspective(300px) translate3d(0, 5px, 0) rotateX(0);
+    transform: perspective(300px) translate3d(0, 3px, 0) rotate3d(3, 2, 1, 8deg);
   }
   25% {
-    transform: perspective(400px) translate3d(-2px, 0, -50px) rotateX(3deg);
+    transform: perspective(400px) translate3d(-2px, 0, -45px)
+      rotate3d(1, 1, 0, 0deg);
   }
   50% {
-    transform: perspective(300px) translate3d(0, -5px, 0) rotateX(-4deg);
+    transform: perspective(300px) translate3d(0, -3px, 0)
+      rotate3d(2, 3, 1, -8deg);
   }
   75% {
-    transform: perspective(400px) translate3d(2px, 0, -35px) rotateX(1deg);
+    transform: perspective(400px) translate3d(2px, 0, -40px)
+      rotate3d(1, 1, 0, 0deg);
   }
   100% {
-    transform: perspective(300px) translate3d(0, 5px, 0) rotateX(4deg);
+    transform: perspective(300px) translate3d(0, 3px, 0) rotate3d(3, 2, 1, 8deg);
   }
 }
 @keyframes float-t-mid {
   0% {
-    transform: perspective(200px) translate3d(0, 8px, 0) rotate3d(3, 2, 1, 5deg);
+    transform: perspective(200px) translate3d(0, 8px, 0) rotate3d(3, 2, 1, 8deg);
   }
   25% {
-    transform: perspective(300px) translate3d(-2px, 0, -60px)
+    transform: perspective(300px) translate3d(-2px, 0, -75px)
       rotate3d(1, 1, 0, 0deg);
   }
   50% {
     transform: perspective(200px) translate3d(0, -8px, 0)
-      rotate3d(2, 3, 1, -5deg);
+      rotate3d(2, 3, 1, -8deg);
   }
   75% {
-    transform: perspective(300px) translate3d(2px, 0, -60px)
+    transform: perspective(300px) translate3d(2px, 0, -80px)
       rotate3d(1, 1, 0, 0deg);
   }
   100% {
-    transform: perspective(200px) translate3d(0, 8px, 0) rotate3d(3, 2, 1, 5deg);
+    transform: perspective(200px) translate3d(0, 8px, 0) rotate3d(3, 2, 1, 8deg);
   }
 }
 @keyframes float-t-far {
   0% {
-    transform: perspective(200px) translate3d(0, 0, 0) rotate3d(3, 2, 1, 5deg);
+    transform: perspective(200px) translate3d(0, 0, 0) rotate3d(3, 2, 2, 0deg);
   }
   25% {
-    transform: perspective(400px) translate3d(0, 25px, -150px)
-      rotate3d(1, 1, 0, 0deg);
+    transform: perspective(400px) translate3d(0, 25px, -170px)
+      rotate3d(2, 2, 1, 9deg);
   }
   50% {
-    transform: perspective(200px) translate3d(0, 0, 0) rotate3d(2, 3, 1, -5deg);
+    transform: perspective(200px) translate3d(0, 0, 0) rotate3d(2, 3, 2, 0deg);
   }
   75% {
-    transform: perspective(400px) translate3d(0, -25px, -150px)
-      rotate3d(1, 1, 0, 0deg);
+    transform: perspective(400px) translate3d(0, -25px, -165px)
+      rotate3d(1, 2, 1, -9deg);
   }
   100% {
-    transform: perspective(200px) translate3d(0, 0, 0) rotate3d(3, 2, 1, 5deg);
+    transform: perspective(200px) translate3d(0, 0, 0) rotate3d(3, 2, 2, 0deg);
   }
 }
 
 @keyframes float-r {
   0% {
-    transform: perspective(400px) rotate3d(2, 6, 0, 6deg);
+    transform: perspective(400px) rotate3d(2, 6, 0, 7deg);
   }
   25% {
-    transform: perspective(400px) rotate3d(3, 5, 1, -8deg);
+    transform: perspective(400px) rotate3d(3, 5, 1, -9deg);
   }
   50% {
-    transform: perspective(400px) rotate3d(2, 7, 2, 6deg);
+    transform: perspective(400px) rotate3d(2, 7, 2, 7deg);
   }
   100% {
-    transform: perspective(400px) rotate3d(3, 6, 1, -4deg);
+    transform: perspective(400px) rotate3d(3, 6, 1, -6deg);
   }
 }
 @keyframes flash {
@@ -107,7 +114,7 @@
 }
 @keyframes fade-blur {
   0% {
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(30px);
   }
   100% {
     backdrop-filter: blur(0px);
@@ -191,7 +198,7 @@ canvas {
   align-items: center;
   flex-direction: column;
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   text-align: center;
   z-index: 99;
   transform-style: preserve-3d;
@@ -232,27 +239,40 @@ canvas {
   justify-content: center;
   flex-wrap: nowrap;
   white-space: nowrap;
+  /* font-family: "Poppins", sans-serif; */
   font-size: calc(1.3rem + 1.4vw);
   font-weight: 900;
   text-align: center;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: hsl(48, 100%, 50%);
 }
 
 .score-container {
+  min-width: 180px;
+  padding: 0.5em;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   position: fixed;
   top: 0.75em;
   left: 1em;
-  font-family: "Poppins", sans-serif;
-  font-size: calc(1.2rem + 0.5vw);
-  font-weight: 900;
-  line-height: 1.2em;
+  font-family: "Press Start 2P", system-ui;
+  /* font-family: "Raleway", sans-serif; */
+  font-size: calc(0.6rem + 0.4vw);
+  font-weight: 200;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  color: white;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid white;
+  border-radius: 0.2em;
+  backdrop-filter: blur(7px) saturate(0.2);
+  -webkit-backdrop-filter: blur(7px) saturate(0.2);
   z-index: 999999;
-  animation: float-t-mid 120s ease-in-out infinite;
+  animation: float-t-mid 60s ease-in-out infinite,
+    float-r 160s ease-in-out infinite alternate;
   /* filter-near 30s ease-in-out infinite alternate; */
 }
 .score-text-wrapper,
@@ -261,19 +281,17 @@ canvas {
   justify-content: center;
   align-items: center;
 }
-.score-text-wrapper {
+/* .score-text-wrapper {
   animation: float-r 20s ease-in-out infinite alternate;
 }
 .high-score-text-wrapper {
   animation: float-r 25s ease-in-out infinite alternate;
-}
+} */
 .score-text-title,
 .high-score-text-title {
   width: 120px;
   margin-right: 1ch;
   padding: 0 0.2em;
-  font-family: "Poppins", sans-serif;
-  color: hsl(45, 100%, 50%);
 }
 
 .high-score-text-title {
@@ -286,9 +304,7 @@ canvas {
 }
 .score-text-results,
 .high-score-text-results {
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  color: white;
+  font-weight: 900;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -296,15 +312,15 @@ canvas {
 }
 .high-score-new-record {
   width: 100%;
-  margin-top: 0.25em;
+  padding: 0.3em;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto", sans-serif;
-  font-size: calc(0.5rem + 0.3vw);
-  letter-spacing: 0.1em;
+  position: absolute;
+  bottom: -3.75em;
+  font-size: calc(0.5rem + 0.1vw);
+  letter-spacing: 0.2em;
   font-weight: 900;
-  line-height: 2em;
   text-align: center;
   text-transform: uppercase;
   color: white;
@@ -313,8 +329,9 @@ canvas {
   border-radius: 0.4em;
   white-space: nowrap;
   filter: opacity(0);
+  backdrop-filter: blur(7px) saturate(0.2) opacity(0.9);
+  -webkit-backdrop-filter: blur(7px) saturate(0.2) opacity(0.9);
   transition: 0.15s ease;
-  animation: float-r 20s ease-in-out infinite alternate;
 }
 
 .options-icon-wrapper {
@@ -426,7 +443,7 @@ canvas {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   flex-direction: column;
   text-align: left;
 }
@@ -435,9 +452,9 @@ label {
   align-self: flex-start;
   display: flex;
   justify-content: space-between;
-  font-family: "Roboto", sans-serif;
-  font-size: calc(0.9rem + 0.1vw);
-  font-weight: 300;
+  font-family: "Raleway", sans-serif;
+  font-size: calc(0.8rem + 0.1vw);
+  font-weight: 500;
   letter-spacing: 0.01em;
   text-align: left;
   text-transform: capitalize;
@@ -493,7 +510,7 @@ input {
 }
 .controls-list-item {
   width: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: calc(0.6rem + 0.2vw);
   font-weight: 200;
   letter-spacing: 0.07em;

@@ -19,6 +19,7 @@ class UserInterface {
     this.optionsIconWrapper;
     this.optionsIconTop;
     this.optionsIconBottom;
+    this.scoreContainer;
     this.scoreTextTitle;
     this.highScoreTextTitle;
     this.scoreTextResults;
@@ -172,6 +173,7 @@ class UserInterface {
     this.optionsIconWrapper = document.getElementById("options-icon-wrapper");
     this.optionsIconTop = document.getElementById("options-icon-top");
     this.optionsIconBottom = document.getElementById("options-icon-bottom");
+    this.scoreContainer = document.getElementById("score-container");
     this.scoreTextTitle = document.getElementById("score-text-title");
     this.highScoreTextTitle = document.getElementById("high-score-text-title");
     this.scoreTextResults = document.getElementById("score-text-results");
@@ -287,33 +289,51 @@ class UserInterface {
   update() {
     this.updateText();
     this.updateOptions();
-    this.updateScoreboard();
   }
   updateText() {
     // Change name color **************************************************************************************************************
     this.nameText.style.color = `hsl(${this.player.hue}, 100%, 50%)`;
+    // update score and record **************************************************************************************************************
+    this.scoreTextResults.innerText = this.player.score;
+    this.highScoreTextResults.innerHTML = `${this.player.highScore}`;
+    // update name color **************************************************************************************************************
+    // this.scoreTextTitle.style.color = `hsl(${this.player.hue}, 100%, 50%)`;
+    // this.highScoreTextTitle.style.color = `hsl(${this.player.hue}, 100%, 50%)`;
+    // update scoreboard border and bg colors **************************************************************************************************************
+    this.scoreContainer.style.border = `1px solid hsl(${this.player.hue},
+      ${this.player.saturation}%,
+      ${this.player.brightness + 20}%)`;
+    this.scoreContainer.style.borderRadius = `0.3em`;
+    this.scoreContainer.style.background = `hsla(${this.player.hue},
+      ${this.player.saturation}%,
+      ${this.player.brightness + 30}%, 0.1)`;
+    this.scoreContainer.style.backdropFilter = `blur(7px) saturate(0.2) opacity(0.9);`;
+    this.scoreContainer.style[
+      "-webkit-backdrop-filter"
+    ] = `blur(7px) saturate(0.2) opacity(0.9)`;
+    // update highscoreboard border and bg colors **************************************************************************************************************
+    this.highScoreNewRecord.style.border = `1px solid hsl(${this.player.hue}, ${
+      this.player.saturation
+    }%, ${this.player.brightness + 20}%)`;
+    this.highScoreNewRecord.style.background = `hsla(${this.player.hue}, ${
+      this.player.saturation
+    }%, ${this.player.brightness + 30}%, 0.1)`;
+    this.highScoreNewRecord.style.boxShadow = `0 0 20px hsla(
+      ${this.player.hue},
+      ${this.player.saturation}%,
+      ${this.player.brightness + 15}%, 0.5)`;
+    // Display New Record Handler **************************************************************************************************************
+    if (this.player.score > 0 && this.isNewHighScore) {
+      this.highScoreNewRecord.style.animation =
+        "flash 0.3s ease infinite alternate";
+      this.highScoreNewRecord.style.filter = `opacity(1)`;
+    }
   }
   updateOptions() {
     this.accLabel.innerHTML = `Acceleration: <span>${this.accInput.value}</span>`;
     this.decelLabel.innerHTML = `Deceleration: <span>${this.decelInput.value}</span>`;
     this.turnSpeedLabel.innerHTML = `TurnSpeed: <span>${this.turnSpeedInput.value}</span>`;
     this.particleCountLabel.innerHTML = `Particles: <span>${this.particleCountInput.value}</span>`;
-  }
-  updateScoreboard() {
-    // Change name color **************************************************************************************************************
-    this.scoreTextTitle.style.color = `hsl(${this.player.hue}, 100%, 50%)`;
-    this.highScoreTextTitle.style.color = `hsl(${this.player.hue}, 100%, 50%)`;
-    // update score and record **************************************************************************************************************
-    this.scoreTextResults.innerText = this.player.score;
-    this.highScoreTextResults.innerHTML = `${this.player.highScore}`;
-    // Display New Record Handler **************************************************************************************************************
-    if (this.player.score > 0 && this.isNewHighScore) {
-      this.highScoreNewRecord.style.animation =
-        "flash 0.3s ease infinite alternate";
-      this.highScoreNewRecord.style.borderColor = `hsl(${this.player.hue}, 100%, 50%)`;
-      this.highScoreNewRecord.style.background = `hsla(${this.player.hue}, 100%, 70%, 0.1)`;
-      this.highScoreNewRecord.style.boxShadow = `0 0 20px hsla(${this.player.hue}, 100%, 70%, 0.5)`;
-    }
   }
   addElement(
     type = "div",
@@ -351,6 +371,7 @@ class UserInterface {
   introScreenFade() {
     this.introScreen.style.backgroundColor = `black`;
     this.introScreen.style.backdropFilter = `blur(20px)`;
+    this.introScreen.style["-webkit-backdrop-filter"] = `blur(20px)`;
     this.introScreen.style.animation = `fade-blur 3s ease-in-out 1 forwards,
     fade-bg 2.5s ease-in-out 1 forwards`;
     this.player.isEngineOn = false;
