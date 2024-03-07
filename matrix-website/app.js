@@ -20,11 +20,13 @@ class UserInterface {
     this.optionsIconTop;
     this.optionsIconBottom;
     this.scoreContainer;
+    this.scoreWrapper;
     this.scoreTextTitle;
     this.highScoreTextTitle;
     this.scoreTextResults;
     this.highScoreTextResults;
-    this.highScoreNewRecord;
+    this.highScoreRecordWrapper;
+    this.highScoreRecordTitle;
     this.isNewHighScore = false;
     this.init();
   }
@@ -49,8 +51,9 @@ class UserInterface {
     head.appendChild(favicon);
   }
   initElements() {
-    // Create Main Text element **************************************************************************************************************
+    // Create Intro Fade In Screen element **************************************************************************************************************
     this.addElement("div", document.body, ``, "intro-screen", "intro-screen");
+    // Create Main Text element **************************************************************************************************************
     this.addElement(
       "div",
       document.body,
@@ -63,15 +66,19 @@ class UserInterface {
     this.addElement(
       "div",
       document.body,
-      `<div class="score-text-wrapper">
-        <p class="score-text-title" id="score-text-title">Score:</p>
-        <span class="score-text-results" id="score-text-results">0</span>
+      `<div class="score-wrapper" id="score-wrapper">
+        <div class="score-text-wrapper" id="score-text-wrapper">
+          <p class="score-text-title" id="score-text-title">Score:</p>
+          <span class="score-text-results" id="score-text-results">0</span>
+        </div>
+        <div class="high-score-text-wrapper">
+          <p class="high-score-text-title" id="high-score-text-title" title="Click to reset high score">Record:</p>
+          <p class="high-score-text-results" id="high-score-text-results">0</p>
+        </div>
       </div>
-      <div class="high-score-text-wrapper">
-        <p class="high-score-text-title" id="high-score-text-title" title="Click to reset high score">Record:</p>
-        <span class="high-score-text-results" id="high-score-text-results">0</span>
-      </div>
-      <div class="high-score-new-record" id="high-score-new-record">New Record</div> `,
+      <div class="high-score-record-wrapper" id="high-score-record-wrapper">
+        <p class="high-score-record-title" id="high-score-record-title" >New Record</p>
+      </div>`,
       "score-container",
       "score-container"
     );
@@ -174,13 +181,19 @@ class UserInterface {
     this.optionsIconTop = document.getElementById("options-icon-top");
     this.optionsIconBottom = document.getElementById("options-icon-bottom");
     this.scoreContainer = document.getElementById("score-container");
+    this.scoreWrapper = document.getElementById("score-wrapper");
     this.scoreTextTitle = document.getElementById("score-text-title");
     this.highScoreTextTitle = document.getElementById("high-score-text-title");
     this.scoreTextResults = document.getElementById("score-text-results");
     this.highScoreTextResults = document.getElementById(
       "high-score-text-results"
     );
-    this.highScoreNewRecord = document.getElementById("high-score-new-record");
+    this.highScoreRecordWrapper = document.getElementById(
+      "high-score-record-wrapper"
+    );
+    this.highScoreRecordTitle = document.getElementById(
+      "high-score-record-title"
+    );
   }
   initScreenOptions() {
     // Acceleration option **************************************************************************************************************
@@ -291,6 +304,13 @@ class UserInterface {
     this.updateOptions();
   }
   updateText() {
+    const backdropFilter = `blur(7px) saturate(0.2) opacity(1)`;
+    const border = `2px ridge hsl(${this.player.hue},
+      ${this.player.saturation}%,
+      ${this.player.brightness + 20}%)`;
+    const background = `hsla(${this.player.hue}, ${this.player.saturation}%, ${
+      this.player.brightness + 30
+    }%, 0.1)`;
     // Change name color **************************************************************************************************************
     this.nameText.style.color = `hsl(${this.player.hue}, 100%, 50%)`;
     // update score and record **************************************************************************************************************
@@ -300,33 +320,26 @@ class UserInterface {
     // this.scoreTextTitle.style.color = `hsl(${this.player.hue}, 100%, 50%)`;
     // this.highScoreTextTitle.style.color = `hsl(${this.player.hue}, 100%, 50%)`;
     // update scoreboard border and bg colors **************************************************************************************************************
-    this.scoreContainer.style.border = `1px solid hsl(${this.player.hue},
-      ${this.player.saturation}%,
-      ${this.player.brightness + 20}%)`;
-    this.scoreContainer.style.borderRadius = `0.3em`;
-    this.scoreContainer.style.background = `hsla(${this.player.hue},
-      ${this.player.saturation}%,
-      ${this.player.brightness + 30}%, 0.1)`;
-    this.scoreContainer.style.backdropFilter = `blur(7px) saturate(0.2) opacity(0.9);`;
-    this.scoreContainer.style[
-      "-webkit-backdrop-filter"
-    ] = `blur(7px) saturate(0.2) opacity(0.9)`;
+    this.scoreWrapper.style.border = border;
+    this.scoreWrapper.style.borderRadius = `6px`;
+    this.scoreWrapper.style.background = background;
+    this.scoreWrapper.style.backdropFilter = backdropFilter;
+    this.scoreWrapper.style["-webkit-backdrop-filter"] = backdropFilter;
     // update highscoreboard border and bg colors **************************************************************************************************************
-    this.highScoreNewRecord.style.border = `1px solid hsl(${this.player.hue}, ${
-      this.player.saturation
-    }%, ${this.player.brightness + 20}%)`;
-    this.highScoreNewRecord.style.background = `hsla(${this.player.hue}, ${
-      this.player.saturation
-    }%, ${this.player.brightness + 30}%, 0.1)`;
-    this.highScoreNewRecord.style.boxShadow = `0 0 20px hsla(
-      ${this.player.hue},
-      ${this.player.saturation}%,
-      ${this.player.brightness + 15}%, 0.5)`;
+    this.highScoreRecordWrapper.style.border = border;
+    this.highScoreRecordWrapper.style.borderRadius = `6px`;
+    this.highScoreRecordWrapper.style.background = background;
+    this.highScoreRecordWrapper.style.filter = `opacity(0)`;
+    this.highScoreRecordWrapper.style.backdropFilter = backdropFilter;
+    this.highScoreRecordWrapper.style["-webkit-backdrop-filter"] =
+      backdropFilter;
     // Display New Record Handler **************************************************************************************************************
     if (this.player.score > 0 && this.isNewHighScore) {
-      this.highScoreNewRecord.style.animation =
-        "flash 0.3s ease infinite alternate";
-      this.highScoreNewRecord.style.filter = `opacity(1)`;
+      this.highScoreRecordWrapper.style.filter = `opacity(1)`;
+      // this.scoreWrapper.style.borderBottom = `none`;
+      // this.scoreWrapper.style.borderRadius = `6px 6px 0 0`;
+      this.highScoreRecordWrapper.style.animation =
+        "flash 0.3s linear infinite alternate";
     }
   }
   updateOptions() {
