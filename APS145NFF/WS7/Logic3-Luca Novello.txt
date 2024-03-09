@@ -1,0 +1,29 @@
+﻿WORKSHOP #7 - CAR WASH
+[Luca Novello - gnovello]
+[Logic 3 Pseudocode]
+
+
+1. Start/Previous Logic
+2. Did the customer cancel the order?
+   a) Yes: continue: (Step 12)
+   b) No: continue: (Step 3)
+3. Did the customer select “Basic” car wash?
+   a) Yes: Create session and add “Basic” car wash: continue: (Step 6)
+   b) No: continue: (Step 4)
+4. Did the customer select “Clean” car wash?
+   a) Yes: Create session and add “Clean” car wash: continue: (Step 6)
+   b) No: continue: (Step 5)
+5. Did the customer select “Super Clean” car wash?
+   a) Yes: Create session and add “Super Clean” car wash: continue: (Step 6)
+   b) No: continue: (Step 6)
+6. Is the customer ready to pay?
+   a) Yes: Enable credit card payment module: continue: (Step 7)
+   b) No: continue: (Step 2)
+7. Is credit card payment successful?
+   a) Yes: continue: (Step 7)
+   b) No: continue: (Step 6)
+8. Print and dispense receipt with session details.
+9. Disable credit card payment module
+10. Open gate.
+11. Start appropriate car wash mode.
+12. End/Go Idle
