@@ -29,6 +29,7 @@ class UserInterface {
     this.highScoreRecordTitle;
     this.isNewHighScore = false;
     this.init();
+    this.menuHandler(this.isOptionsOpen);
   }
   init() {
     this.initHeader();
@@ -58,7 +59,7 @@ class UserInterface {
       "div",
       document.body,
       `<h1 class="seneca-text">Seneca College of Applied Arts & Technology</h1>
-      <h2 class="name-text">Welcome to <span class="name-wrapper"><span class="name" id="name">Luca Novello</span>'s</span> Website</h2>`,
+      <h2 class="name-text">Welcome to <span class="name-wrapper"><span class="name" id="name">lucaNovello</span>'s</span> Website</h2>`,
       "text-container",
       "text-container"
     );
@@ -115,14 +116,13 @@ class UserInterface {
       </div>
     </div>
     <div class="option-controls-wrapper" data-group="options">
-      <div class="form-row" data-group="options">
         <p class="controls-title" data-group="options">Controls</p>
         <ul class="controls-list" data-group="options">
           <li class="controls-list-item" data-group="options">
             <span class="controls-list-left-wrapper" data-group="options">
-              <p data-group="options">W</p>
+              <p class="controls-list-left-char" data-group="options">W</p>
               or
-              <p data-group="options">&#8593;</p>
+              <p class="controls-list-left-char" data-group="options">&#8593;</p>
             </span>
             <span class="controls-list-right-wrapper" data-group="options">
               <p data-group="options">Forward</p>
@@ -130,9 +130,9 @@ class UserInterface {
           </li>
           <li class="controls-list-item" data-group="options">
             <span class="controls-list-left-wrapper" data-group="options">
-              <p data-group="options">S</p>
+              <p class="controls-list-left-char" data-group="options">S</p>
               or
-              <p data-group="options">&#8595;</p>
+              <p class="controls-list-left-char" data-group="options">&#8595;</p>
             </span>
             <span class="controls-list-right-wrapper" data-group="options">
               <p data-group="options">Reverse</p>
@@ -140,26 +140,41 @@ class UserInterface {
           </li>
           <li class="controls-list-item" data-group="options">
             <span class="controls-list-left-wrapper" data-group="options">
-              <p data-group="options">A</p>
+              <p class="controls-list-left-char" data-group="options">A</p>
               or
-              <p data-group="options">&#8592;</p>
+              <p class="controls-list-left-char" data-group="options">&#8592;</p>
             </span>
             <span class="controls-list-right-wrapper" data-group="options">
-              <p data-group="options">&#8634;</p>
+              <p data-group="options">Rotate &#8634;</p>
             </span>
           </li>
           <li class="controls-list-item" data-group="options">
             <span class="controls-list-left-wrapper" data-group="options">
-              <p data-group="options">D</p>
+              <p class="controls-list-left-char" data-group="options">D</p>
               or
-              <p data-group="options">&#8594;</p>
+              <p class="controls-list-left-char" data-group="options">&#8594;</p>
             </span>
             <span class="controls-list-right-wrapper" data-group="options">
-              <p data-group="options">&#8635;</p>
+              <p data-group="options">Rotate &#8635;</p>
+            </span>
+          </li>
+          <li class="controls-list-item" data-group="options">
+            <span class="controls-list-left-wrapper" data-group="options">
+              <p class="controls-list-left-word" data-group="options">Shift</p>
+            </span>
+            <span class="controls-list-right-wrapper" data-group="options">
+              <p data-group="options">Turbo</p>
+            </span>
+          </li>
+          <li class="controls-list-item" data-group="options">
+            <span class="controls-list-left-wrapper" data-group="options">
+              <p class="controls-list-left-word" data-group="options">Space</p>
+            </span>
+            <span class="controls-list-right-wrapper" data-group="options">
+              <p data-group="options">Dash</p>
             </span>
           </li>
         </ul>
-      </div>
     </div>`,
       "options-container",
       "options-container",
@@ -284,18 +299,18 @@ class UserInterface {
     });
     this.optionsIconWrapper.addEventListener("touchstart", (e) => {
       e.preventDefault();
-      this.mobileNavCloseHandler(!this.isOptionsOpen);
+      this.menuHandler(!this.isOptionsOpen);
     });
     this.optionsIconWrapper.addEventListener("mousedown", (e) => {
       e.preventDefault();
-      this.mobileNavCloseHandler(!this.isOptionsOpen);
+      this.menuHandler(!this.isOptionsOpen);
     });
     this.highScoreTextTitle.addEventListener("mousedown", () => {
       this.player.updateHighScore(this.player.score);
     });
     window.addEventListener("mousedown", (e) => {
       if (e.target.dataset.group != "options") {
-        this.mobileNavCloseHandler(false);
+        this.menuHandler(false);
       }
     });
   }
@@ -363,7 +378,7 @@ class UserInterface {
     innerHTML != null && (newDiv.innerHTML = innerHTML);
     parent.appendChild(newDiv);
   }
-  mobileNavCloseHandler(isOptionsOpen) {
+  menuHandler(isOptionsOpen) {
     this.isOptionsOpen = isOptionsOpen;
     if (!this.isOptionsOpen) {
       this.optionsIconTop.classList.remove("options-icon-top-close");
@@ -462,8 +477,8 @@ class Player {
       dashTime: 10,
       dashDelay: 200,
       brake: 1,
-      sprintRate: 1.5,
-      sprint: 1,
+      turboRate: 2,
+      turbo: 1,
     };
     this.angle = 0;
     this.up = 0;
@@ -478,7 +493,7 @@ class Player {
     this.isParticleOn = false;
     // Stats **************************************************************************************************************
     this.score = 0;
-    this.highScore = 5;
+    this.highScore = 0;
     // Color & Style **************************************************************************************************************
     this.hue = Math.random() * 359;
     this.hueAdjust = 10;
@@ -546,7 +561,7 @@ class Player {
           break;
         case "ShiftLeft":
         case "ShiftRight":
-          this.moves.sprint = this.moves.sprintRate;
+          this.moves.turbo = this.moves.turboRate;
           break;
         case "Space":
           this.dashHandler(e);
@@ -576,7 +591,7 @@ class Player {
           break;
         case "ShiftLeft":
         case "ShiftRight":
-          this.moves.sprint = 1;
+          this.moves.turbo = 1;
           break;
         // case "Space":
         //   this.moves.brake = 1;
@@ -633,14 +648,14 @@ class Player {
         Math.cos(this.angle) *
           this.direction.x *
           this.acc.value *
-          this.moves.sprint *
+          this.moves.turbo *
           this.moves.brake -
         this.vel.x * this.decel.value;
       this.vel.y +=
         Math.sin(this.angle) *
           this.direction.y *
           this.acc.value *
-          this.moves.sprint *
+          this.moves.turbo *
           this.moves.brake -
         this.vel.y * this.decel.value;
     } else {
@@ -651,14 +666,14 @@ class Player {
         Math.cos(this.angle) *
           this.direction.y *
           this.acc.value *
-          this.moves.sprint *
+          this.moves.turbo *
           this.moves.brake -
         this.vel.x * this.decel.value;
       this.vel.y +=
         Math.sin(this.angle) *
           this.direction.y *
           this.acc.value *
-          this.moves.sprint *
+          this.moves.turbo *
           this.moves.brake -
         this.vel.y * this.decel.value;
     }
