@@ -1,0 +1,22 @@
+﻿WORKSHOP #8 - Self Checkout
+[Luca Novello - gnovello]
+[Logic 3 Luca Novello Pseudocode]
+
+
+1. Start/Previous Logic
+2. Import & store Transaction
+3. Does Transaction.perishableProducts have any items to loop through?
+   1. Yes: loop through Transaction.perishableProducts: (Step 4)
+   2. No: loop through Transaction.nonPerishableProducts: (Step 4)
+4. Add Transaction.products[i].price to Transaction.subtotal
+5. Multiply Transaction.products[i].price with Transaction.products[i].taxRate and add to Transaction.taxTotal
+6. Are there any more items to loop though?
+   1. Yes: (Step 3)
+   2. No: (Step 7)
+7. Add Transaction.subtotal & Transaction.taxTotal to Transaction.total
+8. Does the customer want to proceed with payment?
+   1. Yes: Process Payment: (Step 9)
+   2. No: (Step 11)
+9. Print and dispense Itemized receipt of all Transaction details and end transaction
+10. Clear Transaction
+11. End/Next Logic
