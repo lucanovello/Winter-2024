@@ -35,6 +35,8 @@ void printReport(const int stno[], const float mark[], int num) {
 		totalMarks += mark[i];
 	}
 	avg = totalMarks / num;
+	printf("---------------+------");
+	nl();
 	printf("       Average:   %.1f", avg);
 	nl();
 }

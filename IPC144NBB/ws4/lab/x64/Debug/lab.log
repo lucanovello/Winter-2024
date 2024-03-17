@@ -1,3 +1,5 @@
-﻿  report.c
-C:\Storage\SCHOOL\Winter-2024\IPC144NBB\ws4\lab\report.c(8,2): warning C4013: 'printf' undefined; assuming extern returning int
+﻿  main.c
+  report.c
+  utils.c
+  Generating Code...
   lab.vcxproj -> C:\Storage\SCHOOL\Winter-2024\IPC144NBB\ws4\lab\x64\Debug\lab.exe
