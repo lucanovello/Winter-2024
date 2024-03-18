@@ -15,7 +15,7 @@ void readStudentInfo(int stno[], float mark[], int num) {
 	stno[i] = getInt();
 	printf("Mark\n> ");
 	mark[i] = getFlt();
-	printf("---------------------------------");
+	printf("----------------------");
 	nl();
 	}
 }
