@@ -31,14 +31,14 @@ void readStudentInfo(struct Student S[], int num) {
 }
 
 void printStudent(struct Student S) {
-	printf("%-30s| %-15d|%.1f", S.name, S.stNo, S.mark);
+	printf("%-30s| %-15d|%-8.1f", S.name, S.stNo, S.mark);
 }
 
 void printReport(const struct Student S[], int num) {
 	int i;
 	float totalMarks = 0;
 	float avg = 0;
-	printf("%-31s%-17s%-6s", "Name", "student number", "mark");
+	printf("Name                           student number   mark");
 	nl();
 	printf("------------------------------+----------------+------");
 	nl();
