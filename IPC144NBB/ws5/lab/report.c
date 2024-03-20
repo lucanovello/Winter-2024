@@ -38,7 +38,7 @@ void printReport(const struct Student S[], int num) {
 	int i;
 	float totalMarks = 0;
 	float avg = 0;
-	printf("%-30s| %-15s|%-6s", "Name", "student number", "mark");
+	printf("%-31s%-17s|%-6s", "Name", "student number", "mark");
 	nl();
 	printf("------------------------------+----------------+------");
 	nl();
