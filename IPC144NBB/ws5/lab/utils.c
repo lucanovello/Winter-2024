@@ -2,38 +2,40 @@
 #include <stdio.h>
 #include "utils.h"
 
-void flushKey( void ) {
-   char ch;
-   do {
-      ch = getchar( );
-   } while ( ch != '\n' );
+void flushKey(void) {
+	while (getchar() != '\n');
 }
-
-void nl( void ) {
-   putchar( '\n' );
+void nl(void) {
+	putchar('\n');
 }
-
 int getInt(void) {
-   int num;
-   do
-   {
-   scanf( "%d", &num );
-
-   } while (num != int);
-   flushKey( );
-   return num;
+	int inum;
+	char newLine = ' ';
+	while (scanf("%d%c", &inum, &newLine) != 2 || newLine != '\n') {
+		flushKey();
+		printf("Bad integer, try again\n> ");
+	}
+	return inum;
 }
-
-double getDbl(void) {
-   double num;
-   scanf( "%lf", &num );
-   flushKey();
-   return num;
-}
-
 float getFlt(void) {
-   float num;
-   scanf("%f", &num);
-   flushKey();
-   return num;
+	float fnum;
+	char newLine = ' ';
+	while (scanf("%f%c", &fnum, &newLine) != 2 || newLine != '\n') {
+		flushKey();
+		printf("Bad real number, try again\n> ");
+	}
+	return fnum;
+}
+double getDbl(void) {
+	double dnum;
+	char newLine = ' ';
+	while (scanf("%lf%c", &dnum, &newLine) != 2 || newLine != '\n') {
+		flushKey();
+		printf("Bad real number, try again\n> ");
+	}
+	return dnum;
+}
+void getLine(char str[]) {
+	scanf("%[^\n]", str);
+	flushKey();
 }

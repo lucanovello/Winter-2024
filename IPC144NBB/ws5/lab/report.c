@@ -3,7 +3,20 @@
 #include "report.h"
 
 
-void readStudentInfo(int stno[], float mark[], int num) {
+
+struct Student getStudent(void) {
+	struct Student student;
+	printf("Name\n> ");
+	getLine(student.name);
+	printf("Student Number\n> ");
+	student.stNo = getInt();
+	printf("Mark\n> ");
+	student.mark = getFlt();
+	return student;
+}
+
+
+void readStudentInfo(struct Student S[], int num) {
 	int i;
 	printf("Enter %d student records:", num);
 	nl();
@@ -11,32 +24,33 @@ void readStudentInfo(int stno[], float mark[], int num) {
 	{
 	printf("Enter Student Information # %d:", i+1);
 	nl();
-	printf("Student Number\n> ");
-	stno[i] = getInt();
-	printf("Mark\n> ");
-	mark[i] = getFlt();
+	S[i] = getStudent();
 	printf("----------------------");
 	nl();
 	}
 }
 
-void printReport(const int stno[], const float mark[], int num) {
+void printStudent(struct Student S) {
+	printf("%-30s| %-15d|%-6.1f", S.name, S.stNo, S.mark);
+}
+
+void printReport(const struct Student S[], int num) {
 	int i;
 	float totalMarks = 0;
 	float avg = 0;
-	printf("student number   mark");
+	printf("%-30s| %-15s|%-6s", "Name", "student number", "mark");
 	nl();
-	printf("---------------+------");
+	printf("------------------------------+----------------+------");
 	nl();
 	for (i = 0; i < num; i++)
 	{
-		printf("%d         |  %.1f", stno[i], mark[i]);
+		printStudent(S[i]);
 		nl();
-		totalMarks += mark[i];
+		totalMarks += S[i].mark;
 	}
 	avg = totalMarks / num;
-	printf("---------------+------");
+	printf("------------------------------+----------------+------");
 	nl();
-	printf("       Average:   %.1f", avg);
+	printf("%47s%7.1f","Average:", avg);
 	nl();
 }

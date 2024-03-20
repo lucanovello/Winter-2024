@@ -2,11 +2,12 @@
 #ifndef SENECA_UTILS_H
 #define SENECA_UTILS_H
 
-int getInt( void);
-double getDbl(void);
-float getFlt(void);
 void flushKey( void );
 void nl( void );
+int getInt( void);
+float getFlt(void);
+double getDbl(void);
+void getLine(char str[]);
 
 #endif // !SENECA_UTILS_H
 
