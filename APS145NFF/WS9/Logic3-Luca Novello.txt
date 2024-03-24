@@ -1,0 +1,28 @@
+﻿[WORKSHOP #9 - Dungeon - Room B]
+[Luca Novello - Logic 3 - Pseudocode]
+
+1. Start/Previous Logic
+2. Create a variable “totalTime” and initialize it to 0
+3. Create a variable “totalGuesses” and initialize it to 0
+4. Call GenerateWord
+5. Does the user want to guess a letter?
+   a. Yes: Call GuessLetter with user input and (totalGuesses + 1) -> Step 6
+   b. No: continue -> Step 9
+6. Did GuessLetter return “1”?
+   a. Yes: (totalTime + 3) -> Step 8
+   b. No: continue -> Step 7
+7. Did GuessLetter return “-1”?
+   a. Yes: (totalTime + 6) -> Step 8
+   b. No: (totalTime + 2) -> Step 12
+8. Does totalGuesses = 8?
+   a. Yes: continue -> Step 10
+   b. No: continue -> Step 9
+9. Does the user want to guess the word?
+   a. Yes: continue -> Step 10
+   b. No: continue -> Step 5
+10. Call GuessWord with user input
+11. Did GuessWord return “1”?
+   a. Yes: if (totalGuesses = 8) then (totalTime + 5) else (totalTime + 2) -> Step 12
+   b. No:  if (totalGuesses = 8) then (totalTime + 25) else (totalTime + 20) -> Step 12
+12. Return totalTime
+13. End/Next Logic.
