@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\report.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|solutionrelative:report.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|solutionrelative:utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\utils.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|solutionrelative:utils.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\report.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|solutionrelative:report.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6BA45D8B-9A40-4306-A73F-60783472A322}|lab.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "report.c",
+              "DocumentMoniker": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\report.c",
+              "RelativeDocumentMoniker": "report.c",
+              "ToolTip": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\report.c",
+              "RelativeToolTip": "report.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-03-19T17:23:27.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "report.h",
+              "DocumentMoniker": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\report.h",
+              "RelativeDocumentMoniker": "report.h",
+              "ToolTip": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\report.h",
+              "RelativeToolTip": "report.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-19T17:23:32.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "utils.c",
+              "DocumentMoniker": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\utils.c",
+              "RelativeDocumentMoniker": "utils.c",
+              "ToolTip": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\utils.c",
+              "RelativeToolTip": "utils.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-03-19T17:23:28.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "utils.h",
+              "DocumentMoniker": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\utils.h",
+              "RelativeDocumentMoniker": "utils.h",
+              "ToolTip": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\utils.h",
+              "RelativeToolTip": "utils.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-20T09:48:55.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.c",
+              "DocumentMoniker": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "C:\\Storage\\SCHOOL\\Winter-2024\\IPC144NBB\\workshops\\ws5\\lab\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-03-19T17:23:26.445Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

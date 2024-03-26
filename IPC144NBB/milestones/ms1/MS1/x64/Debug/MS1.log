@@ -1,0 +1,7 @@
+﻿  main.c
+  PosApp.c
+  PosUI.c
+  utils.c
+  Generating Code...
+C:\Storage\SCHOOL\Winter-2024\IPC144NBB\milestones\ms1\PosUI.c(19,1): warning C4716: 'menu': must return a value
+  MS1.vcxproj -> C:\Storage\SCHOOL\Winter-2024\IPC144NBB\milestones\ms1\x64\Debug\MS1.exe
