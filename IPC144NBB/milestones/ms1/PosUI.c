@@ -47,7 +47,8 @@ void runPos(const char filename[]) {
 			break;
 		case 0:
 			saveItems(filename);
-			printf("Goodbye!");
+			printf("Goodbye!\n");
+	nl();
 			done = 1;
 			break;
 		default:
