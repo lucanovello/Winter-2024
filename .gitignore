@@ -82,7 +82,3 @@ dkms.conf
 *.wma
 *.ogg
 *.flac
-
-# Images
-*.jpg
-*.png
