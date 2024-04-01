@@ -18,6 +18,7 @@ int menu(void) {
 	printf("0- exit program");
 	nl();
 	printf("> ");
+	return 0;
 }
 
 void runPos(const char filename[]) {
@@ -27,31 +28,29 @@ void runPos(const char filename[]) {
 	while (!done) {
 		menu();
 		selection = getIntMM(0, 5, "Selection");
-	switch (selection)
-	{
-	case 1:
-		inventory();
-		break;
-	case 2:
-		addItem();
-		break;
-	case 3:
-		removeItem();
-		break;
-	case 4:
-		stockItem();
-		break;
-	case 5:
-		POS();
-		break;
-	case 0:
-		saveItems(filename);
-		printf("Goodbye!");
-		done = 1;
-		break;
-	default:
-		break;
+	switch (selection) {
+		case 1:
+			inventory();
+			break;
+		case 2:
+			addItem();
+			break;
+		case 3:
+			removeItem();
+			break;
+		case 4:
+			stockItem();
+			break;
+		case 5:
+			POS();
+			break;
+		case 0:
+			saveItems(filename);
+			printf("Goodbye!");
+			done = 1;
+			break;
+		default:
+			break;
+		}
 	}
-	}
-
 }
