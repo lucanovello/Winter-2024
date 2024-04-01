@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "PosUI.h"
 #include "utils.h"
 #include "PosApp.h"
 

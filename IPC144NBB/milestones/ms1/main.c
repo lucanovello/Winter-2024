@@ -14,9 +14,11 @@
 //
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "POS.h"
 #include "PosUI.h"
+
 int main() {
    printf("Testing POS.h defined values:\n");
    if(TAX - 0.13 < 0.00001 && 0.13 - TAX < 0.00001) {
