@@ -1,1 +1,3 @@
-﻿  ms1.vcxproj -> C:\Storage\SCHOOL\Winter-2024\IPC144NBB\milestones\ms1\x64\Debug\ms1.exe
+﻿  PosUI.c
+C:\Storage\SCHOOL\Winter-2024\IPC144NBB\milestones\ms1\PosUI.c(21,1): warning C4716: 'menu': must return a value
+  ms1.vcxproj -> C:\Storage\SCHOOL\Winter-2024\IPC144NBB\milestones\ms1\x64\Debug\ms1.exe
