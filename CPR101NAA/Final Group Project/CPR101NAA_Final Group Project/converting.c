@@ -1,7 +1,7 @@
 // CONVERTING MODULE SOURCE
 #define _CRT_SECURE_NO_WARNINGS
 #define BUFFER_SIZE 80
-//#include "converting.h"
+#include "converting.h"
 
 // V1
 void converting(void) {

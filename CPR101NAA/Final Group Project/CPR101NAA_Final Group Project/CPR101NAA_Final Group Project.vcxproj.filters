@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="converting_v1.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="tokenizing.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,40 +24,10 @@
     <ClCompile Include="fundamentals.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="converting_v2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="converting_v3.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="fundamentals_v1.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="fundamentals_v2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="fundamentals_v3.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tokenizing_v1.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tokenizing_v2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tokenizing_v3.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="manipulating_v1.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="manipulating_v2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="manipulating_v3.c">
+    <ClCompile Include="converting.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

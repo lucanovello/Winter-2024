@@ -127,22 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="converting_v1.c" />
-    <ClCompile Include="converting_v2.c" />
-    <ClCompile Include="converting_v3.c" />
+    <ClCompile Include="converting.c" />
     <ClCompile Include="fundamentals.c" />
-    <ClCompile Include="fundamentals_v1.c" />
-    <ClCompile Include="fundamentals_v2.c" />
-    <ClCompile Include="fundamentals_v3.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="manipulating.c" />
-    <ClCompile Include="manipulating_v1.c" />
-    <ClCompile Include="manipulating_v2.c" />
-    <ClCompile Include="manipulating_v3.c" />
     <ClCompile Include="tokenizing.c" />
-    <ClCompile Include="tokenizing_v1.c" />
-    <ClCompile Include="tokenizing_v2.c" />
-    <ClCompile Include="tokenizing_v3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="converting.h" />

@@ -1,7 +1,7 @@
 // MANIPULATING SOURCE
 #define _CRT_SECURE_NO_WARNINGS
 #define BUFFER_SIZE 80
-#include "manipulating.h"
+//#include "manipulating.h"
 
 // V2
 void manipulating(void) {
