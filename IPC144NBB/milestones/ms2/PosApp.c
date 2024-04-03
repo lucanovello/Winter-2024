@@ -40,7 +40,7 @@ void listItems(void) {
 	for (i = 0; i < noOfItems; i++)
 	{
 		strnCpy(iName, items[i].name, 19);
-		printf("%4d | %-7s| %-19s| %5.2lf | %c | %3d | %8.2lf|\n",
+		printf("%4d | %6s | %-19s| %5.2lf | %c | %3d | %7.2lf |\n",
 			i + 1,
 			items[i].sku,
 			iName,
