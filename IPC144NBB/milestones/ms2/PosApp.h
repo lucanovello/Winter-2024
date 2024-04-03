@@ -15,7 +15,7 @@ void saveItems(const char filename[]);
 double cost(const struct Item* item);
 void listItems(void);
 
-const struct Item
+struct Item
 {
 	char sku[MAX_SKU_LEN];
 	char name[MAX_NAME_LEN];
@@ -24,7 +24,7 @@ const struct Item
 	int quantity;	
 };
 
-const struct Item items[MAX_NO_ITEMS];
+struct Item items[MAX_NO_ITEMS];
 int noOfItems;
 
 #endif // !SENECA_POSAPP_H

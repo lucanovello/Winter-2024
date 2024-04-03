@@ -47,5 +47,11 @@ void pause(void);
 /// adds a new line 
 /// </summary>
 void nl(void);
+
+void strCpy(char des[], const char src[]);
+void strnCpy(char des[], const char src[], int len);
+int strCmp(const char left[], const char right[]);
+
+
 #endif // !SENECA_UTILS_H
 
