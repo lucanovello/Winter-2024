@@ -26,8 +26,8 @@ int menu(void) {
 void runPos(const char filename[]) {
 	int done = 0;
 	int selection = 0;
-	loadItems(filename);
-	while (!done) {
+	int isLoaded = loadItems(filename);
+	while (!done && isLoaded != 2) {
 		menu();
 		selection = getIntMM(0, 5, "Selection");
 	switch (selection) {

@@ -12,7 +12,7 @@ void inventory(void) {
 	displayAction("List Items");
 	listItems();
 	for (i = 0; i < noOfItems; i++) {
-		tav += items[i].price * items[i].quantity;
+		tav += cost(&items[i]) * items[i].quantity;
 	}
 	printf("                               Total Asset: $  | %13.2lf |\n", tav);
 	printf("-----------------------------------------------^---------------^\n");
@@ -34,10 +34,10 @@ int loadItems(const char filename[]) {
 	displayAction("Loading Items");
 	FILE* data = fopen(filename, "r");
 	if (data == NULL) {
-		fprintf(stderr, "ERROR! ERROR! File %s not found\n", filename);
+		fprintf(stderr, "ERROR! ERROR! File %s not found. File required to continue...\n", filename);
 		return 2;
 	}
-	while (fscanf(data, "%5[^,],%59[^,],%lf,%d,%d\n", items[noOfItems].sku, items[noOfItems].name, &items[noOfItems].price, &items[noOfItems].taxed, &items[noOfItems].quantity) == 5) {
+	while (fscanf(data, "%5[^,],%59[^,],%lf,%d,%d", items[noOfItems].sku, items[noOfItems].name, &items[noOfItems].price, &items[noOfItems].taxed, &items[noOfItems].quantity) == 5) {
 		noOfItems += 1;
 		flushFile(data);
 	};
@@ -66,7 +66,7 @@ void listItems(void) {
 			items[i].price,
 			items[i].taxed ? 'T' : ' ',
 			items[i].quantity,
-			items[i].price * items[i].quantity);
+			cost(&items[i]) * items[i].quantity);
 	}
 	printf("-----^--------^--------------------^-------^---^-----^---------^\n");
 }
