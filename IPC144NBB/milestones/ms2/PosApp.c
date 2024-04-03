@@ -29,25 +29,6 @@ void stockItem(void) {
 void POS(void) {
 	displayAction("Point Of Sale");
 }
-int loadItems(const char filename[]) {
-	noOfItems = 0;
-	displayAction("Loading Items");
-	FILE* data = fopen(filename, "r");
-	if (data == NULL) {
-		fprintf(stderr, "ERROR! ERROR! File %s not found. File required to continue...\n", filename);
-		return 2;
-	}
-	while (fscanf(data, "%5[^,],%59[^,],%lf,%d,%d", items[noOfItems].sku, items[noOfItems].name, &items[noOfItems].price, &items[noOfItems].taxed, &items[noOfItems].quantity) == 5) {
-		noOfItems += 1;
-		flushFile(data);
-	};
-	fclose(data);
-	displayAction("Done!");
-	return noOfItems;
-}
-void saveItems(const char filename[]) {
-	displayAction("Saving Items");
-}
 double cost(const struct Item* item) {
 	return item->price * (1 + item->taxed * TAX);
 }
@@ -69,4 +50,23 @@ void listItems(void) {
 			cost(&items[i]) * items[i].quantity);
 	}
 	printf("-----^--------^--------------------^-------^---^-----^---------^\n");
+}
+int loadItems(const char filename[]) {
+	noOfItems = 0;
+	displayAction("Loading Items");
+	FILE* data = fopen(filename, "r");
+	if (data == NULL) {
+		fprintf(stderr, "ERROR! ERROR! File %s not found. File required to continue...\n", filename);
+		return 2;
+	}
+	while (fscanf(data, "%5[^,],%59[^,],%lf,%d,%d", items[noOfItems].sku, items[noOfItems].name, &items[noOfItems].price, &items[noOfItems].taxed, &items[noOfItems].quantity) == 5) {
+		noOfItems += 1;
+		flushFile(data);
+	};
+	fclose(data);
+	displayAction("Done!");
+	return noOfItems;
+}
+void saveItems(const char filename[]) {
+	displayAction("Saving Items");
 }
